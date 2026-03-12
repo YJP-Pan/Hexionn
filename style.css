@@ -468,7 +468,9 @@
     }
     @keyframes scanDown { 0%{top:-2px} 100%{top:100%} }
 
-    /* Floating cyber tags in hero */
+    /* Floating cyber tags in hero — hidden on mobile to avoid text collision */
+    @media (max-width:767px) { .cyber-tag { display:none; } }
+
     .cyber-tag {
       position:absolute; z-index:2; pointer-events:none;
       padding:0.25rem 0.625rem; border:1px solid rgba(250,88,34,0.35);
