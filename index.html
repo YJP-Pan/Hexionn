@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hexionn — 主動式安全，驅動企業未來</title>
+  <title>Hexion — 主動式安全，驅動企業未來</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
@@ -49,6 +49,25 @@
           <a href="#" class="mega-link">威脅情報</a>
           <a href="#" class="mega-link">攻擊面管理</a>
           <a href="#" class="mega-link">暗網監控</a>
+        </div>
+        <div class="mega-col" style="border-left:1px solid rgba(255,255,255,0.06);background:rgba(250,88,34,0.03)">
+          <div class="mega-label" style="color:var(--teal)">UTM 產品線</div>
+          <a href="#utm-products" class="mega-link mega-link-product">
+            <span class="mega-prod-badge" style="background:rgba(250,88,34,0.15);color:var(--o)">IT</span>
+            Pico-UTM 100
+          </a>
+          <a href="#utm-products" class="mega-link mega-link-product">
+            <span class="mega-prod-badge" style="background:rgba(0,200,200,0.12);color:var(--teal)">IoT</span>
+            Dual Ark-UTM 16
+          </a>
+          <a href="#utm-products" class="mega-link mega-link-product">
+            <span class="mega-prod-badge" style="background:rgba(250,88,34,0.12);color:#FF7A45">OT</span>
+            Tera-UTM 12
+          </a>
+          <a href="#utm-products" class="mega-link mega-link-product">
+            <span class="mega-prod-badge" style="background:rgba(61,220,151,0.12);color:#3DDC97">APP</span>
+            Mobile Security
+          </a>
         </div>
       </div>
     </div>
@@ -122,13 +141,13 @@
       在攻擊發生前識別、預測並消除風險——以機器速度守護您的一切。
     </p>
 
-    <div class="hero-actions">
+    <!-- <div class="hero-actions">
       <a href="#" class="btn btn-orange" style="padding:0.9rem 1.875rem;font-size:1rem;">
         立即免費試用
         <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8.5 3.5L13 8l-4.5 4.5-.707-.707L11.086 8.5H3v-1h8.086L7.793 4.207z"/></svg>
       </a>
       <a href="#" class="btn btn-ghost" style="padding:0.9rem 1.875rem;font-size:1rem;">觀看平台演示</a>
-    </div>
+    </div> -->
 
     <div class="hero-trust">
       <div class="hero-trust-avatars">
@@ -366,6 +385,298 @@
     </div>
 
   </div>
+</section>
+
+<!-- ═══════════════ UTM PRODUCTS ═══════════════ -->
+<section class="utm-sec" id="utm-products">
+  <div class="utm-bg-glow"></div>
+  <div class="reveal">
+    <div class="sec-tag" style="color:var(--teal);border-color:rgba(0,200,200,0.3)">NGFW / UTM 產品線</div>
+    <h2 class="sec-h">Lionic UTM <span class="accent">全系列</span>資安解決方案</h2>
+    <p class="sec-p">深度封包檢測（DPI）核心技術，防病毒 · 防駭客 · 防惡意網站，適配 IT / IoT / OT 各場域。</p>
+  </div>
+
+  <!-- Tabs -->
+  <div class="utm-tab-row" role="tablist">
+    <button class="utm-tab active" onclick="switchUtmTab(this,'u-it')" role="tab">
+      <span class="utm-tab-badge" style="background:rgba(250,88,34,0.2);color:var(--o)">IT</span>
+      Pico-UTM 100
+    </button>
+    <button class="utm-tab" onclick="switchUtmTab(this,'u-iot')" role="tab">
+      <span class="utm-tab-badge" style="background:rgba(0,200,200,0.15);color:var(--teal)">IoT</span>
+      Dual Ark-UTM 16
+    </button>
+    <button class="utm-tab" onclick="switchUtmTab(this,'u-ot')" role="tab">
+      <span class="utm-tab-badge" style="background:rgba(255,122,69,0.2);color:#FF7A45">OT</span>
+      Tera-UTM 12
+    </button>
+    <button class="utm-tab" onclick="switchUtmTab(this,'u-app')" role="tab">
+      <span class="utm-tab-badge" style="background:rgba(61,220,151,0.15);color:#3DDC97">APP</span>
+      Mobile Security
+    </button>
+  </div>
+
+  <!-- IT -->
+  <div id="u-it" class="utm-panel active">
+    <div class="utm-inner">
+      <div class="utm-info reveal">
+        <div class="utm-badge-row">
+          <span class="utm-badge">業界 CP 值最高</span>
+          <span class="utm-badge" style="border-color:rgba(0,200,200,0.3);color:var(--teal)">推薦：連鎖店・中小企業・事務所</span>
+        </div>
+        <h3 class="utm-model">Pico-UTM 100</h3>
+        <p class="utm-sub">Gateway ／ Edge 解決方案</p>
+        <ul class="utm-feat-list">
+          <li><span class="utm-check">✓</span> 防病毒 / 防駭客 / 防惡意網站</li>
+          <li><span class="utm-check">✓</span> 硬體防火牆 + 地理封鎖</li>
+          <li><span class="utm-check">✓</span> 防護老舊 OS 系統漏洞</li>
+          <li><span class="utm-check">✓</span> 週報表・LINE 威脅通知・威脅百科</li>
+          <li><span class="utm-check">✓</span> 友善介面管理（單機 + CMS）</li>
+        </ul>
+        <div class="utm-use-row">
+          <div class="utm-use-tag">連鎖商店</div>
+          <div class="utm-use-tag">中小企業</div>
+          <div class="utm-use-tag">公家機關</div>
+          <div class="utm-use-tag">餐飲業</div>
+        </div>
+        <a href="https://www.lionic.com/" target="_blank" rel="noopener" class="utm-cta">了解更多 <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8.5 3.5L13 8l-4.5 4.5-.707-.707L11.086 8.5H3v-1h8.086L7.793 4.207z"/></svg></a>
+      </div>
+      <div class="utm-visual reveal" style="transition-delay:.1s">
+        <div class="utm-device-wrap">
+          <div class="utm-scan-line"></div>
+          <svg viewBox="0 0 320 260" fill="none" xmlns="http://www.w3.org/2000/svg" class="utm-device-svg">
+            <defs>
+              <radialGradient id="dg1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FA5822" stop-opacity="0.18"/><stop offset="100%" stop-color="#FA5822" stop-opacity="0"/></radialGradient>
+              <filter id="dblur"><feGaussianBlur stdDeviation="6"/></filter>
+            </defs>
+            <ellipse cx="160" cy="130" rx="130" ry="110" fill="url(#dg1)" filter="url(#dblur)"/>
+            <!-- Device body -->
+            <rect x="60" y="95" width="200" height="90" rx="10" fill="#111128" stroke="rgba(250,88,34,0.4)" stroke-width="1.5"/>
+            <rect x="60" y="95" width="200" height="22" rx="10" fill="rgba(250,88,34,0.08)"/>
+            <rect x="60" y="107" width="200" height="10" fill="rgba(250,88,34,0.08)"/>
+            <!-- LED -->
+            <circle cx="78" cy="106" r="4" fill="#FA5822"><animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/></circle>
+            <circle cx="94" cy="106" r="4" fill="#00C8C8"><animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/></circle>
+            <circle cx="110" cy="106" r="4" fill="#3DDC97" opacity="0.8"/>
+            <!-- Label -->
+            <text x="230" y="110" font-size="8" font-family="monospace" fill="rgba(255,255,255,0.4)" text-anchor="middle">Pico-UTM 100</text>
+            <!-- Ports -->
+            <rect x="74" y="130" width="20" height="12" rx="2" fill="rgba(0,200,200,0.1)" stroke="rgba(0,200,200,0.3)" stroke-width="1"/>
+            <rect x="100" y="130" width="20" height="12" rx="2" fill="rgba(0,200,200,0.1)" stroke="rgba(0,200,200,0.3)" stroke-width="1"/>
+            <rect x="126" y="130" width="20" height="12" rx="2" fill="rgba(250,88,34,0.08)" stroke="rgba(250,88,34,0.25)" stroke-width="1"/>
+            <rect x="152" y="130" width="20" height="12" rx="2" fill="rgba(250,88,34,0.08)" stroke="rgba(250,88,34,0.25)" stroke-width="1"/>
+            <!-- Shield icon center -->
+            <path d="M160 148 L178 156 L178 170 Q178 183 160 189 Q142 183 142 170 L142 156 Z" fill="rgba(250,88,34,0.08)" stroke="rgba(250,88,34,0.4)" stroke-width="1.5"/>
+            <path d="M153 169 L159 175 L169 163" stroke="#FA5822" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Floating data badges -->
+            <rect x="8" y="60" width="90" height="40" rx="5" fill="rgba(17,17,40,0.9)" stroke="rgba(250,88,34,0.3)" stroke-width="1"/>
+            <text x="18" y="76" font-size="7" font-family="monospace" fill="rgba(250,88,34,0.8)">AV BLOCKED</text>
+            <text x="18" y="90" font-size="11" font-family="monospace" fill="white" font-weight="bold">1,284</text>
+            <rect x="222" y="50" width="90" height="40" rx="5" fill="rgba(17,17,40,0.9)" stroke="rgba(0,200,200,0.3)" stroke-width="1"/>
+            <text x="232" y="66" font-size="7" font-family="monospace" fill="rgba(0,200,200,0.8)">IPS EVENTS</text>
+            <text x="232" y="80" font-size="11" font-family="monospace" fill="white" font-weight="bold">347</text>
+            <rect x="8" y="180" width="110" height="36" rx="5" fill="rgba(17,17,40,0.9)" stroke="rgba(61,220,151,0.3)" stroke-width="1"/>
+            <text x="18" y="194" font-size="7" font-family="monospace" fill="rgba(61,220,151,0.8)">UPTIME</text>
+            <text x="18" y="208" font-size="11" font-family="monospace" fill="#3DDC97" font-weight="bold">99.98%</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IoT -->
+  <div id="u-iot" class="utm-panel">
+    <div class="utm-inner">
+      <div class="utm-info reveal">
+        <div class="utm-badge-row">
+          <span class="utm-badge" style="border-color:rgba(0,200,200,0.3);color:var(--teal)">HA 雙機備援</span>
+          <span class="utm-badge">推薦：企業・多分點辦公室</span>
+        </div>
+        <h3 class="utm-model" style="color:var(--teal)">Dual Ark-UTM 16</h3>
+        <p class="utm-sub">Gateway 解決方案 — 高可用性備援</p>
+        <ul class="utm-feat-list">
+          <li><span class="utm-check" style="color:var(--teal)">✓</span> 防病毒 / 防駭客 / 防惡意網站</li>
+          <li><span class="utm-check" style="color:var(--teal)">✓</span> <strong style="color:var(--teal)">高可用性備援 (HA)</strong> 雙機熱備</li>
+          <li><span class="utm-check" style="color:var(--teal)">✓</span> 硬體防火牆 + 地理封鎖</li>
+          <li><span class="utm-check" style="color:var(--teal)">✓</span> 防護 OS 系統漏洞</li>
+          <li><span class="utm-check" style="color:var(--teal)">✓</span> 友善介面管理（單機 + CMS）</li>
+        </ul>
+        <div class="utm-use-row">
+          <div class="utm-use-tag" style="border-color:rgba(0,200,200,0.3)">連鎖商店</div>
+          <div class="utm-use-tag" style="border-color:rgba(0,200,200,0.3)">中大型企業</div>
+          <div class="utm-use-tag" style="border-color:rgba(0,200,200,0.3)">多分點辦公室</div>
+        </div>
+        <a href="https://www.lionic.com/" target="_blank" rel="noopener" class="utm-cta" style="border-color:var(--teal);color:var(--teal)">了解更多 <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8.5 3.5L13 8l-4.5 4.5-.707-.707L11.086 8.5H3v-1h8.086L7.793 4.207z"/></svg></a>
+      </div>
+      <div class="utm-visual reveal" style="transition-delay:.1s">
+        <div class="utm-device-wrap">
+          <div class="utm-scan-line" style="background:linear-gradient(90deg,transparent,rgba(0,200,200,0.5),transparent)"></div>
+          <svg viewBox="0 0 320 260" fill="none" xmlns="http://www.w3.org/2000/svg" class="utm-device-svg">
+            <defs><radialGradient id="dg2" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#00C8C8" stop-opacity="0.15"/><stop offset="100%" stop-color="#00C8C8" stop-opacity="0"/></radialGradient></defs>
+            <ellipse cx="160" cy="130" rx="130" ry="110" fill="url(#dg2)" filter="url(#dblur)"/>
+            <!-- Primary device -->
+            <rect x="40" y="80" width="110" height="70" rx="8" fill="#111128" stroke="rgba(0,200,200,0.5)" stroke-width="1.5"/>
+            <rect x="40" y="80" width="110" height="18" rx="8" fill="rgba(0,200,200,0.08)"/>
+            <rect x="40" y="90" width="110" height="8" fill="rgba(0,200,200,0.08)"/>
+            <circle cx="54" cy="89" r="3.5" fill="#00C8C8"><animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite"/></circle>
+            <text x="95" y="93" font-size="7" font-family="monospace" fill="rgba(0,200,200,0.6)" text-anchor="middle">PRIMARY</text>
+            <rect x="52" y="110" width="16" height="10" rx="2" fill="rgba(0,200,200,0.1)" stroke="rgba(0,200,200,0.3)" stroke-width="1"/>
+            <rect x="74" y="110" width="16" height="10" rx="2" fill="rgba(0,200,200,0.1)" stroke="rgba(0,200,200,0.3)" stroke-width="1"/>
+            <rect x="96" y="110" width="16" height="10" rx="2" fill="rgba(0,200,200,0.1)" stroke="rgba(0,200,200,0.3)" stroke-width="1"/>
+            <!-- HA arrow -->
+            <path d="M155 115 L175 115" stroke="rgba(0,200,200,0.7)" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#ar)"/>
+            <path d="M165 109 L165 121" stroke="rgba(0,200,200,0.4)" stroke-width="1.5"/>
+            <!-- Secondary device -->
+            <rect x="175" y="80" width="110" height="70" rx="8" fill="#111128" stroke="rgba(0,200,200,0.35)" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <rect x="175" y="80" width="110" height="18" rx="8" fill="rgba(0,200,200,0.05)"/>
+            <rect x="175" y="90" width="110" height="8" fill="rgba(0,200,200,0.05)"/>
+            <circle cx="189" cy="89" r="3.5" fill="#00C8C8" opacity="0.4"/>
+            <text x="230" y="93" font-size="7" font-family="monospace" fill="rgba(0,200,200,0.4)" text-anchor="middle">STANDBY</text>
+            <rect x="187" y="110" width="16" height="10" rx="2" fill="rgba(0,200,200,0.05)" stroke="rgba(0,200,200,0.2)" stroke-width="1"/>
+            <rect x="209" y="110" width="16" height="10" rx="2" fill="rgba(0,200,200,0.05)" stroke="rgba(0,200,200,0.2)" stroke-width="1"/>
+            <rect x="231" y="110" width="16" height="10" rx="2" fill="rgba(0,200,200,0.05)" stroke="rgba(0,200,200,0.2)" stroke-width="1"/>
+            <!-- HA label -->
+            <rect x="125" y="160" width="70" height="22" rx="4" fill="rgba(0,200,200,0.1)" stroke="rgba(0,200,200,0.4)" stroke-width="1"/>
+            <text x="160" y="175" font-size="8" font-family="monospace" fill="#00C8C8" text-anchor="middle" font-weight="bold">HA ACTIVE</text>
+            <!-- Stats -->
+            <rect x="8" y="55" width="100" height="36" rx="5" fill="rgba(17,17,40,0.9)" stroke="rgba(0,200,200,0.3)" stroke-width="1"/>
+            <text x="18" y="70" font-size="7" font-family="monospace" fill="rgba(0,200,200,0.8)">FAILOVER TIME</text>
+            <text x="18" y="84" font-size="11" font-family="monospace" fill="#00C8C8" font-weight="bold">&lt; 30ms</text>
+            <rect x="212" y="55" width="100" height="36" rx="5" fill="rgba(17,17,40,0.9)" stroke="rgba(0,200,200,0.3)" stroke-width="1"/>
+            <text x="222" y="70" font-size="7" font-family="monospace" fill="rgba(0,200,200,0.8)">AVAILABILITY</text>
+            <text x="222" y="84" font-size="11" font-family="monospace" fill="#00C8C8" font-weight="bold">99.99%</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OT -->
+  <div id="u-ot" class="utm-panel">
+    <div class="utm-inner">
+      <div class="utm-info reveal">
+        <div class="utm-badge-row">
+          <span class="utm-badge" style="border-color:rgba(255,122,69,0.4);color:#FF7A45">合規 SEMI E187</span>
+          <span class="utm-badge">推薦：製造業・半導體</span>
+        </div>
+        <h3 class="utm-model" style="color:#FF7A45">Tera-UTM 12</h3>
+        <p class="utm-sub">Edge 解決方案 — OT / ICS 進階防護</p>
+        <ul class="utm-feat-list">
+          <li><span class="utm-check" style="color:#FF7A45">✓</span> 防病毒 / 防駭客 / 防惡意網站</li>
+          <li><span class="utm-check" style="color:#FF7A45">✓</span> <strong style="color:#FF7A45">工控系統進階防護 (ICS)</strong></li>
+          <li><span class="utm-check" style="color:#FF7A45">✓</span> <strong style="color:#FF7A45">Hardware Bypass</strong> 確保產線不停工</li>
+          <li><span class="utm-check" style="color:#FF7A45">✓</span> 防護老舊 OS / PLC 設備漏洞</li>
+          <li><span class="utm-check" style="color:#FF7A45">✓</span> 友善介面管理（單機 + CMS）</li>
+        </ul>
+        <div class="utm-use-row">
+          <div class="utm-use-tag" style="border-color:rgba(255,122,69,0.35)">半導體產業</div>
+          <div class="utm-use-tag" style="border-color:rgba(255,122,69,0.35)">製造業</div>
+          <div class="utm-use-tag" style="border-color:rgba(255,122,69,0.35)">工業 4.0</div>
+        </div>
+        <a href="https://www.lionic.com/" target="_blank" rel="noopener" class="utm-cta" style="border-color:#FF7A45;color:#FF7A45">了解更多 <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8.5 3.5L13 8l-4.5 4.5-.707-.707L11.086 8.5H3v-1h8.086L7.793 4.207z"/></svg></a>
+      </div>
+      <div class="utm-visual reveal" style="transition-delay:.1s">
+        <div class="utm-device-wrap">
+          <div class="utm-scan-line" style="background:linear-gradient(90deg,transparent,rgba(255,122,69,0.5),transparent)"></div>
+          <svg viewBox="0 0 320 260" fill="none" xmlns="http://www.w3.org/2000/svg" class="utm-device-svg">
+            <defs><radialGradient id="dg3" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FF7A45" stop-opacity="0.15"/><stop offset="100%" stop-color="#FF7A45" stop-opacity="0"/></radialGradient></defs>
+            <ellipse cx="160" cy="130" rx="130" ry="110" fill="url(#dg3)" filter="url(#dblur)"/>
+            <!-- Tall rack-mount device -->
+            <rect x="115" y="65" width="90" height="130" rx="6" fill="#111128" stroke="rgba(255,122,69,0.5)" stroke-width="1.5"/>
+            <rect x="115" y="65" width="90" height="22" rx="6" fill="rgba(255,122,69,0.1)"/>
+            <rect x="115" y="79" width="90" height="8" fill="rgba(255,122,69,0.1)"/>
+            <text x="160" y="77" font-size="7.5" font-family="monospace" fill="rgba(255,122,69,0.8)" text-anchor="middle">Tera-UTM 12</text>
+            <!-- Ports column -->
+            <rect x="128" y="97" width="14" height="10" rx="2" fill="rgba(255,122,69,0.1)" stroke="rgba(255,122,69,0.4)" stroke-width="1"/>
+            <rect x="148" y="97" width="14" height="10" rx="2" fill="rgba(255,122,69,0.1)" stroke="rgba(255,122,69,0.4)" stroke-width="1"/>
+            <rect x="168" y="97" width="14" height="10" rx="2" fill="rgba(255,122,69,0.1)" stroke="rgba(255,122,69,0.4)" stroke-width="1"/>
+            <rect x="128" y="113" width="14" height="10" rx="2" fill="rgba(0,200,200,0.08)" stroke="rgba(0,200,200,0.3)" stroke-width="1"/>
+            <rect x="148" y="113" width="14" height="10" rx="2" fill="rgba(0,200,200,0.08)" stroke="rgba(0,200,200,0.3)" stroke-width="1"/>
+            <rect x="168" y="113" width="14" height="10" rx="2" fill="rgba(0,200,200,0.08)" stroke="rgba(0,200,200,0.3)" stroke-width="1"/>
+            <!-- OT label strip -->
+            <rect x="125" y="133" width="70" height="14" rx="3" fill="rgba(255,122,69,0.15)" stroke="rgba(255,122,69,0.3)" stroke-width="0.75"/>
+            <text x="160" y="143" font-size="7" font-family="monospace" fill="#FF7A45" text-anchor="middle">OT / ICS PROTECT</text>
+            <!-- SEMI badge -->
+            <rect x="125" y="155" width="70" height="14" rx="3" fill="rgba(61,220,151,0.08)" stroke="rgba(61,220,151,0.3)" stroke-width="0.75"/>
+            <text x="160" y="165" font-size="7" font-family="monospace" fill="#3DDC97" text-anchor="middle">SEMI E187</text>
+            <!-- HW Bypass indicator -->
+            <rect x="125" y="177" width="70" height="14" rx="3" fill="rgba(255,68,68,0.08)" stroke="rgba(255,68,68,0.2)" stroke-width="0.75"/>
+            <text x="160" y="187" font-size="7" font-family="monospace" fill="rgba(255,100,100,0.9)" text-anchor="middle">HW BYPASS</text>
+            <!-- Stats cards -->
+            <rect x="8" y="55" width="96" height="36" rx="5" fill="rgba(17,17,40,0.9)" stroke="rgba(255,122,69,0.3)" stroke-width="1"/>
+            <text x="18" y="69" font-size="7" font-family="monospace" fill="rgba(255,122,69,0.8)">ICS EVENTS</text>
+            <text x="18" y="83" font-size="11" font-family="monospace" fill="#FF7A45" font-weight="bold">0 BREACH</text>
+            <rect x="216" y="55" width="96" height="36" rx="5" fill="rgba(17,17,40,0.9)" stroke="rgba(61,220,151,0.3)" stroke-width="1"/>
+            <text x="226" y="69" font-size="7" font-family="monospace" fill="rgba(61,220,151,0.8)">PROD LINE</text>
+            <text x="226" y="83" font-size="11" font-family="monospace" fill="#3DDC97" font-weight="bold">RUNNING</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APP -->
+  <div id="u-app" class="utm-panel">
+    <div class="utm-inner">
+      <div class="utm-info reveal">
+        <div class="utm-badge-row">
+          <span class="utm-badge" style="border-color:rgba(61,220,151,0.4);color:#3DDC97">iOS &amp; Android</span>
+          <span class="utm-badge">AV-Test 100% 偵測率</span>
+        </div>
+        <h3 class="utm-model" style="color:#3DDC97">Mobile Security APP</h3>
+        <p class="utm-sub">手機防毒 — 隨身資安守護</p>
+        <ul class="utm-feat-list">
+          <li><span class="utm-check" style="color:#3DDC97">✓</span> AV-Test 認證，<strong style="color:#3DDC97">100% 偵測率</strong></li>
+          <li><span class="utm-check" style="color:#3DDC97">✓</span> 防病毒 / 防惡意程式 / 防釣魚網站</li>
+          <li><span class="utm-check" style="color:#3DDC97">✓</span> Virustotal 唯一國產自家引擎</li>
+          <li><span class="utm-check" style="color:#3DDC97">✓</span> 即時全球威脅情資更新</li>
+          <li><span class="utm-check" style="color:#3DDC97">✓</span> 支援 iOS 與 Android 雙平台</li>
+        </ul>
+        <div class="utm-use-row">
+          <div class="utm-use-tag" style="border-color:rgba(61,220,151,0.3)">個人用戶</div>
+          <div class="utm-use-tag" style="border-color:rgba(61,220,151,0.3)">企業行動裝置</div>
+          <div class="utm-use-tag" style="border-color:rgba(61,220,151,0.3)">BYOD 管理</div>
+        </div>
+        <a href="https://www.lionic.com/" target="_blank" rel="noopener" class="utm-cta" style="border-color:#3DDC97;color:#3DDC97">了解更多 <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8.5 3.5L13 8l-4.5 4.5-.707-.707L11.086 8.5H3v-1h8.086L7.793 4.207z"/></svg></a>
+      </div>
+      <div class="utm-visual reveal" style="transition-delay:.1s">
+        <div class="utm-device-wrap">
+          <div class="utm-scan-line" style="background:linear-gradient(90deg,transparent,rgba(61,220,151,0.5),transparent)"></div>
+          <svg viewBox="0 0 320 260" fill="none" xmlns="http://www.w3.org/2000/svg" class="utm-device-svg">
+            <defs><radialGradient id="dg4" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#3DDC97" stop-opacity="0.12"/><stop offset="100%" stop-color="#3DDC97" stop-opacity="0"/></radialGradient></defs>
+            <ellipse cx="160" cy="130" rx="130" ry="110" fill="url(#dg4)" filter="url(#dblur)"/>
+            <!-- Phone -->
+            <rect x="120" y="50" width="80" height="155" rx="12" fill="#111128" stroke="rgba(61,220,151,0.5)" stroke-width="1.5"/>
+            <rect x="130" y="63" width="60" height="100" rx="4" fill="rgba(10,10,20,0.9)" stroke="rgba(61,220,151,0.2)" stroke-width="0.75"/>
+            <!-- Screen content -->
+            <rect x="134" y="68" width="52" height="8" rx="2" fill="rgba(61,220,151,0.15)"/>
+            <text x="160" y="75" font-size="6" font-family="monospace" fill="rgba(61,220,151,0.8)" text-anchor="middle">SHIELD ACTIVE</text>
+            <!-- Shield icon on screen -->
+            <path d="M160 83 L173 88.5 L173 97 Q173 105 160 109 Q147 105 147 97 L147 88.5 Z" fill="rgba(61,220,151,0.1)" stroke="rgba(61,220,151,0.5)" stroke-width="1.2"/>
+            <path d="M155 96 L158.5 99.5 L166 92" stroke="#3DDC97" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Stats on screen -->
+            <rect x="134" y="117" width="52" height="7" rx="2" fill="rgba(255,255,255,0.04)"/>
+            <rect x="134" y="117" width="40" height="7" rx="2" fill="rgba(61,220,151,0.3)"/>
+            <text x="134" y="136" font-size="5.5" font-family="monospace" fill="rgba(255,255,255,0.35)">THREATS TODAY</text>
+            <text x="134" y="148" font-size="10" font-family="monospace" fill="#3DDC97" font-weight="bold">247</text>
+            <!-- Home bar -->
+            <rect x="148" y="197" width="24" height="3" rx="1.5" fill="rgba(255,255,255,0.2)"/>
+            <!-- AVTest badge -->
+            <rect x="8" y="90" width="100" height="44" rx="5" fill="rgba(17,17,40,0.9)" stroke="rgba(61,220,151,0.3)" stroke-width="1"/>
+            <text x="18" y="106" font-size="7" font-family="monospace" fill="rgba(61,220,151,0.8)">AV-TEST CERT</text>
+            <text x="18" y="122" font-size="12" font-family="monospace" fill="#3DDC97" font-weight="bold">100%</text>
+            <text x="62" y="129" font-size="6" font-family="monospace" fill="rgba(255,255,255,0.3)">DETECTION</text>
+            <!-- Virustotal -->
+            <rect x="212" y="90" width="100" height="44" rx="5" fill="rgba(17,17,40,0.9)" stroke="rgba(250,88,34,0.3)" stroke-width="1"/>
+            <text x="222" y="106" font-size="7" font-family="monospace" fill="rgba(250,88,34,0.8)">VIRUSTOTAL</text>
+            <text x="222" y="120" font-size="8" font-family="monospace" fill="white">國產引擎</text>
+            <text x="222" y="131" font-size="6" font-family="monospace" fill="rgba(250,88,34,0.7)">Taiwan Made</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <!-- ═══════════════ FEATURE ═══════════════ -->
@@ -812,7 +1123,7 @@
 <footer>
   <div class="footer-top">
     <div>
-      <img src="brand_assets/logo.svg" alt="Hexionn" style="height:38px;width:auto;filter:brightness(0) invert(1)" />
+      <img src="brand_assets/logo.png" alt="Hexionn" style="height:38px;width:auto;filter:brightness(0) invert(1)" />
       <p class="footer-brand-desc">Hexionn 以 AI 驅動的主動式安全平台，守護全球 2,400+ 家企業抵禦當代與未來威脅。</p>
     </div>
     <div>
@@ -865,6 +1176,13 @@ function switchTab(btn, id) {
   document.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   btn.classList.add('active'); btn.setAttribute('aria-selected','true');
+  document.getElementById(id).classList.add('active');
+}
+// ── UTM Tab switching ──
+function switchUtmTab(btn, id) {
+  btn.closest('.utm-sec').querySelectorAll('.utm-tab').forEach(b => b.classList.remove('active'));
+  btn.closest('.utm-sec').querySelectorAll('.utm-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
   document.getElementById(id).classList.add('active');
 }
 
