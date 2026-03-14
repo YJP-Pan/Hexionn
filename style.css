@@ -25,7 +25,10 @@
       line-height: 1.5;
       overflow-x: hidden;
     }
-    h1,h2,h3,h4 { font-family: 'Syne', sans-serif; letter-spacing: -0.025em; }
+    h1,h2,h3,h4 { font-family: 'Orbitron','Syne',sans-serif; letter-spacing:-0.025em; }
+    .nav-item>a,.nav-item>button,.btn,.sec-tag,.stat-n,.prod-name,.prod-type,
+    .prod-badge-top,.utm-model,.mega-label,.topbar a,.orb,
+    .ins-tag,.ins-meta,.blog-date,.utm-badge { font-family:'Orbitron',monospace; }
 
     /* Grain */
     body::before {
