@@ -2,17 +2,57 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>URL 過濾技術深度解析：為什麼 5 億筆資料庫至關重要 | Hexionn</title>
+  <title>URL 過濾技術深度解析 | LIONIC 5億條資料庫 — Hexionn</title>
+  <!-- Primary SEO -->
+  <meta name="description" content="URL 過濾技術完整解析，了解 LIONIC 5億條 URL 分類資料庫的建立原理與企業 Web 安全防護應用。" />
+  <meta name="keywords" content="LIONIC, Lionic, 鴻璟科技, NGFW, UTM, 資安, DPI, Pico-NGFW, Tera-NGFW, 防火牆, 網路安全, 資安解決方案, Hexionn, Deep Packet Inspection, 深度封包檢測" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hexionnetworks.com/blog/url-filtering-technology/" />
+  <meta name="author" content="Hexionn" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Hexionn — Powered by LIONIC Technology" />
+  <meta property="og:title" content="URL 過濾技術深度解析 | LIONIC 5億條資料庫 — Hexionn" />
+  <meta property="og:description" content="URL 過濾技術完整解析，了解 LIONIC 5億條 URL 分類資料庫的建立原理與企業 Web 安全防護應用。" />
+  <meta property="og:url" content="https://hexionnetworks.com/blog/url-filtering-technology/" />
+  <meta property="og:image" content="https://hexionnetworks.com/brand_assets/logo.png" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="URL 過濾技術深度解析 | LIONIC 5億條資料庫 — Hexionn" />
+  <meta name="twitter:description" content="URL 過濾技術完整解析，了解 LIONIC 5億條 URL 分類資料庫的建立原理與企業 Web 安全防護應用。" />
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Hexionn",
+  "alternateName": [
+    "LIONIC Partner",
+    "Hexionn Networks"
+  ],
+  "url": "https://hexionnetworks.com",
+  "logo": "https://hexionnetworks.com/brand_assets/logo.png",
+  "description": "Hexionn 是 LIONIC 技術授權合作夥伴，提供 NGFW、DPI 深度封包檢測、OT/IT 資安解決方案",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "support@hexionnetworks.com",
+    "contactType": "customer support"
+  },
+  "sameAs": [
+    "https://www.lionic.com"
+  ]
+}
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/style.css" />
   <style>
     .article-hero{position:relative;padding:8rem 2rem 4rem;background:#0A0A14;overflow:hidden;}
-    .article-hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 50% 50% at 50% 30%,rgba(167,139,250,0.1) 0%,transparent 70%);pointer-events:none;}
-    .article-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(167,139,250,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(167,139,250,0.04) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;}
+    .article-hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 50% 50% at 50% 30%,rgba(250,88,34,0.1) 0%,transparent 70%);pointer-events:none;}
+    .article-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(250,88,34,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(250,88,34,0.04) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;}
     .article-inner{max-width:800px;margin:0 auto;position:relative;z-index:2;}
-    .article-cat{display:inline-flex;padding:.3rem .9rem;border-radius:100px;background:rgba(167,139,250,0.12);color:#A78BFA;font-family:'Inter',sans-serif;font-size:.75rem;font-weight:700;margin-bottom:1.25rem;}
+    .article-cat{display:inline-flex;padding:.3rem .9rem;border-radius:100px;background:rgba(250,88,34,0.12);color:#FA5822;font-family:'Inter',sans-serif;font-size:.75rem;font-weight:700;margin-bottom:1.25rem;}
     .article-title{font-family:'Syne',sans-serif;font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;color:#fff;letter-spacing:-0.02em;line-height:1.2;margin-bottom:1.25rem;}
     .article-meta{display:flex;gap:1.5rem;flex-wrap:wrap;font-family:'Inter',sans-serif;font-size:.8125rem;color:rgba(255,255,255,0.4);}
     .article-body{max-width:800px;margin:0 auto;padding:4rem 2rem;}
@@ -20,8 +60,8 @@
     .article-body p{font-family:'Inter',sans-serif;font-size:.9375rem;color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:1.25rem;}
     .article-body ul{margin-bottom:1.25rem;padding-left:1.25rem;}
     .article-body li{font-family:'Inter',sans-serif;font-size:.9375rem;color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:.5rem;}
-    .article-body li::marker{color:#A78BFA;}
-    .highlight-box{background:rgba(167,139,250,0.05);border:1px solid rgba(167,139,250,0.2);border-radius:10px;padding:1.5rem 1.75rem;margin:2rem 0;}
+    .article-body li::marker{color:#FA5822;}
+    .highlight-box{background:rgba(250,88,34,0.06);border:1px solid rgba(250,88,34,0.2);border-radius:10px;padding:1.5rem 1.75rem;margin:2rem 0;}
     .highlight-box p{margin:0;color:rgba(255,255,255,0.7);}
     .breadcrumb{max-width:800px;margin:0 auto;padding:1.25rem 2rem 0;display:flex;gap:.5rem;align-items:center;font-family:'Inter',sans-serif;font-size:.8125rem;color:rgba(255,255,255,0.3);}
     .breadcrumb a{color:rgba(255,255,255,0.4);text-decoration:none;}
@@ -34,8 +74,8 @@
 <nav>
   <a href="/" class="nav-logo"><img src="/brand_assets/logo.png" alt="Hexionn" /></a>
   <div class="nav-links">
-    <div class="nav-item"><button>平台<svg class="nav-chevron" viewBox="0 0 16 16" fill="currentColor"><path d="M8 11L3 6h10z"/></svg></button><div class="mega"><div class="mega-col"><div class="mega-label">防護</div><a href="#" class="mega-link">Next-Gen Firewall</a><a href="#" class="mega-link">雲端安全</a><a href="#" class="mega-link">端點防護</a></div><div class="mega-col"><div class="mega-label">營運</div><a href="#" class="mega-link">AI 威脅偵測</a><a href="#" class="mega-link">SIEM 平台</a></div><div class="mega-col"><div class="mega-label">情報</div><a href="#" class="mega-link">威脅情報</a><a href="#" class="mega-link">攻擊面管理</a></div><div class="mega-col" style="border-left:1px solid rgba(255,255,255,0.06);background:rgba(250,88,34,0.03)"><div class="mega-label" style="color:var(--teal)">UTM 產品線</div><a href="/products/pico-utm-100/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(250,88,34,0.15);color:var(--o)">IT</span>Pico-UTM 100</a><a href="/products/dual-ark-utm-16/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(0,200,200,0.12);color:var(--teal)">IoT</span>Dual Ark-UTM 16</a><a href="/products/tera-utm-12/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(250,88,34,0.12);color:#FF7A45">OT</span>Tera-UTM 12</a><a href="/products/lionfilter-200/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(167,139,250,0.12);color:#A78BFA">NET</span>Lionfilter 200</a></div></div></div>
-    <div class="nav-item"><button>解決方案<svg class="nav-chevron" viewBox="0 0 16 16" fill="currentColor"><path d="M8 11L3 6h10z"/></svg></button><div class="mega"><div class="mega-col"><div class="mega-label">產業</div><a href="/solutions/finance/" class="mega-link">金融服務</a><a href="/solutions/manufacturing/" class="mega-link">製造業</a><a href="/solutions/healthcare/" class="mega-link">醫療健康</a><a href="/solutions/government/" class="mega-link">政府機構</a></div><div class="mega-col"><div class="mega-label">需求</div><a href="#" class="mega-link">雲端遷移安全</a><a href="#" class="mega-link">供應鏈安全</a></div><div class="mega-col"><div class="mega-label">規模</div><a href="#" class="mega-link">大型企業</a><a href="#" class="mega-link">中小企業</a></div></div></div>
+    <div class="nav-item"><button>平台<svg class="nav-chevron" viewBox="0 0 16 16" fill="currentColor"><path d="M8 11L3 6h10z"/></svg></button><div class="mega"><div class="mega-col"><div class="mega-label">防護</div><a href="#" class="mega-link">Next-Gen Firewall</a><a href="#" class="mega-link">雲端安全</a><a href="#" class="mega-link">端點防護</a></div><div class="mega-col"><div class="mega-label">營運</div><a href="#" class="mega-link">AI 威脅偵測</a><a href="#" class="mega-link">SIEM 平台</a><a href="#" class="mega-link">自動化回應</a></div><div class="mega-col"><div class="mega-label">情報</div><a href="#" class="mega-link">威脅情報</a><a href="#" class="mega-link">攻擊面管理</a></div><div class="mega-col" style="border-left:1px solid rgba(255,255,255,0.06);background:rgba(250,88,34,0.03)"><div class="mega-label" style="color:var(--teal)">NGFW 產品線</div><a href="/products/pico-utm-100/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(250,88,34,0.15);color:var(--o)">IT</span>Pico-NGFW 100</a><a href="/products/dual-ark-utm-16/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(0,200,200,0.12);color:var(--teal)">IoT</span>Dual Ark-NGFW 16</a><a href="/products/tera-utm-12/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(250,88,34,0.12);color:#FF7A45">OT</span>Tera-NGFW 12</a><a href="/products/lionfilter-200/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(167,139,250,0.12);color:#A78BFA">NET</span>Lionfilter 200</a></div></div></div>
+    <div class="nav-item"><button>解決方案<svg class="nav-chevron" viewBox="0 0 16 16" fill="currentColor"><path d="M8 11L3 6h10z"/></svg></button><div class="mega"><div class="mega-col"><div class="mega-label">產業</div><a href="/solutions/finance/" class="mega-link">金融服務</a><a href="/solutions/manufacturing/" class="mega-link">製造業</a><a href="/solutions/healthcare/" class="mega-link">醫療健康</a><a href="/solutions/government/" class="mega-link">政府機構</a></div><div class="mega-col"><div class="mega-label">需求</div><a href="#" class="mega-link">雲端遷移安全</a><a href="#" class="mega-link">混合辦公防護</a></div><div class="mega-col"><div class="mega-label">規模</div><a href="#" class="mega-link">大型企業</a><a href="#" class="mega-link">中小企業</a></div></div></div>
     <div class="nav-item"><a href="/services/">服務</a></div>
     <div class="nav-item"><a href="/research/">研究</a></div>
     <div class="nav-item"><a href="/about/">關於</a></div>
@@ -50,52 +90,35 @@
   <div class="article-hero-glow"></div><div class="article-hero-grid"></div>
   <div class="article-inner">
     <div class="article-cat">技術解析</div>
-    <h1 class="article-title">URL 過濾技術深度解析：為什麼 5 億筆資料庫至關重要</h1>
-    <div class="article-meta"><span>作者：Hexionn 技術研究部</span><span>2025 年 3 月 5 日</span><span>6 分鐘閱讀</span></div>
+    <h1 class="article-title">URL 過濾技術深度解析：企業 Web 安全的基石</h1>
+    <div class="article-meta"><span>作者：技術研究院</span><span>2025 年 3 月 5 日</span><span>6 分鐘閱讀</span></div>
   </div>
 </section>
 <div style="background:#0A0A14;">
   <div class="article-body">
-    <p>URL 過濾是企業網路安全的基礎防線之一，能夠阻止員工存取惡意網站、釣魚頁面與非工作相關的有害內容。然而不同 URL 過濾解決方案的效能天差地別，核心差異在於 URL 資料庫的品質與規模。本文深入解析 URL 過濾技術的工作原理，以及為何資料庫大小如此關鍵。</p>
+    <p>URL 過濾是企業網路安全的基礎防護層，透過比對 URL 分類資料庫，即時封鎖對惡意網站、釣魚頁面、惡意程式下載點的存取。本文深入解析 URL 過濾技術的工作原理、分類方法，以及在現代企業網路安全中的應用價值。</p>
 
-    <h2>URL 過濾的基本工作原理</h2>
-    <p>當用戶發出 HTTP/HTTPS 請求時，URL 過濾引擎擷取請求中的網域名稱與 URL 路徑，與本地快取或雲端資料庫進行比對。若 URL 被分類為惡意或被政策禁止的類別，則阻斷連線並記錄事件。</p>
-    <p>整個過程必須在毫秒級時間內完成，避免影響使用者體驗。這對資料庫的查詢效能與架構設計提出了嚴苛要求。</p>
+    <h2>URL 過濾的工作原理</h2>
+    <p>URL 過濾系統的核心是一個龐大的 URL 分類資料庫，每個 URL 或網域都被標記一個或多個類別（如「惡意程式」、「釣魚」、「成人內容」、「社群媒體」等）。當使用者發出 HTTP/HTTPS 請求時，過濾引擎查詢資料庫，根據預設政策決定是否允許存取。</p>
+    <div class="highlight-box"><p><strong style="color:#FA5822;">規模挑戰：</strong>全球每天新增的網域超過 25 萬個，其中大量是短期使用後即棄置的一次性惡意網域。維護一個及時、準確的 URL 資料庫需要持續的自動化爬取、機器學習分類與人工審核機制。</p></div>
 
-    <div class="highlight-box"><p><strong style="color:#A78BFA;">Hexionn 資料庫規模：</strong>Hexionn URL 過濾資料庫包含超過 5 億筆 URL 記錄，覆蓋全球主要威脅來源，每日自動更新，確保能夠及時識別新興惡意網站。這是業界少數達到此規模的自有資料庫。</p></div>
+    <h2>URL 分類技術的演進</h2>
+    <p>早期的 URL 過濾依賴人工維護的黑名單，更新週期慢（通常以周計），面對新興威脅的防護窗口期過長。現代 URL 分類技術採用多層次方法：靜態分析（URL 字串特徵、域名年齡、SSL 證書信息）、動態分析（實際訪問網頁，分析內容與行為）、機器學習分類（根據網頁內容特徵自動歸類）以及即時信譽評分（Real-time Reputation）。</p>
 
-    <h2>URL 資料庫的建構方式</h2>
-    <p>高品質的 URL 資料庫並非單純依靠人工收集，而是透過多種自動化技術持續擴充：</p>
+    <h2>DNS 安全過濾</h2>
+    <p>DNS 層的 URL 過濾能夠在建立連線之前即封鎖惡意網域，相較於 HTTP 層過濾具有更低的效能消耗。DNS 過濾特別適合防護物聯網設備和 BYOD 裝置，因為這些設備往往難以部署傳統的代理式 URL 過濾。</p>
+
+    <h2>HTTPS 加密流量的過濾挑戰</h2>
+    <p>超過 90% 的網路流量已採用 HTTPS 加密，傳統 URL 過濾無法直接檢查加密內容。解決方案包括：DNS 層封鎖（在 DNS 解析階段攔截，不需解密）、SNI（Server Name Indication）分析（TLS 握手階段可見的域名資訊）、以及 SSL 解密檢查（對高風險流量進行中間人式解密檢查）。</p>
+
+    <h2>企業 URL 過濾政策設計</h2>
     <ul>
-      <li><strong>網路爬蟲：</strong>持續爬取並分析網頁內容，識別惡意或不適當的內容。</li>
-      <li><strong>威脅情報交換：</strong>與全球資安組織及合作夥伴交換最新惡意 URL 情報。</li>
-      <li><strong>機器學習分類：</strong>利用自然語言處理與機器學習，自動分析新 URL 的內容類別。</li>
-      <li><strong>被動 DNS 分析：</strong>監控 DNS 查詢模式，識別可疑的快速架站（Fast Flux）域名。</li>
-      <li><strong>惡意程式行為分析：</strong>從惡意程式樣本中提取 C2 伺服器域名，加入黑名單。</li>
+      <li>以員工角色為基礎設計差異化政策，研發、業務、行政的需求各不相同</li>
+      <li>設立白名單機制，確保核心業務應用不受誤封影響</li>
+      <li>建立申訴流程，允許員工反映誤封問題並快速處理</li>
+      <li>定期檢視過濾日誌，優化政策並識別潛在威脅模式</li>
     </ul>
-
-    <h2>為何資料庫規模至關重要</h2>
-    <p>互聯網上每天新增數百萬個新網域，惡意行為者不斷創建新的釣魚網站、惡意軟體分發站和 C2 伺服器。一個資料庫偏小的 URL 過濾系統，無論其技術實作多麼精良，都無法有效應對這個快速變化的威脅環境。</p>
-    <p>以釣魚攻擊為例，攻擊者通常在發動攻擊前數小時才架設釣魚網站，並在幾天後廢棄。一個資料庫更新延遲 24 小時的系統，幾乎無法攔截這類短期攻擊。Hexionn 的資料庫採用雲端即時更新機制，新威脅識別後通常在 1 小時內推送至所有設備。</p>
-
-    <h2>URL 分類的重要性</h2>
-    <p>除了惡意 URL 的識別，URL 分類功能也是企業實施網路使用政策的關鍵工具。完善的分類系統應涵蓋：</p>
-    <ul>
-      <li>惡意類：釣魚、惡意程式下載、詐騙、殭屍網路 C2</li>
-      <li>合規類：賭博、成人內容、仇恨言論</li>
-      <li>效率類：社群媒體、串流媒體、遊戲</li>
-      <li>業務類：各行業相關內容的細分類別</li>
-    </ul>
-
-    <h2>評估 URL 過濾解決方案的關鍵指標</h2>
-    <ul>
-      <li>資料庫 URL 總量與每日更新量</li>
-      <li>新威脅 URL 的平均識別時間</li>
-      <li>誤判率（將合法網站誤標為惡意）</li>
-      <li>HTTPS 流量的處理能力（SSL 解密或行為分析）</li>
-      <li>多語言（特別是繁體中文）URL 的識別準確率</li>
-    </ul>
-    <p>Hexionn Lionfilter 200 針對機房與網路服務商環境，提供 10Gbps 線速的 URL 過濾能力，搭配 5 億+ URL 資料庫，是高流量環境下內容安全管理的最佳選擇。</p>
+    <p>URL 過濾與 DPI 深度封包檢測的結合，能實現更全面的 Web 安全防護：DPI 識別流量的應用類型，URL 過濾進一步判斷目標網站的安全性，兩者協同建立縱深防禦體系。</p>
   </div>
 </div>
 <div style="background:#0A0A14;border-top:1px solid rgba(255,255,255,0.06);">
@@ -103,13 +126,13 @@
     <div class="sec-tag" style="margin-bottom:2rem;">相關文章</div>
     <div class="related-grid">
       <div class="blog-card"><div class="blog-date">2025-11-20</div><div class="blog-title" style="font-size:1rem;">DPI 深度封包檢測技術原理</div><a href="/blog/dpi-deep-packet-inspection/" class="blog-read-more">閱讀 →</a></div>
-      <div class="blog-card"><div class="blog-date">2025-09-12</div><div class="blog-title" style="font-size:1rem;">企業 UTM 選購完全指南</div><a href="/blog/utm-selection-guide/" class="blog-read-more">閱讀 →</a></div>
-      <div class="blog-card"><div class="blog-date">2026-01-15</div><div class="blog-title" style="font-size:1rem;">2026 年資安威脅趨勢</div><a href="/blog/cybersecurity-trends-2026/" class="blog-read-more">閱讀 →</a></div>
+      <div class="blog-card"><div class="blog-date">2025-09-12</div><div class="blog-title" style="font-size:1rem;">NGFW 設備選購完整指南 2026</div><a href="/blog/utm-selection-guide/" class="blog-read-more">閱讀 →</a></div>
+      <div class="blog-card"><div class="blog-date">2025-05-22</div><div class="blog-title" style="font-size:1rem;">物聯網資安挑戰 2025</div><a href="/blog/iot-security-challenges/" class="blog-read-more">閱讀 →</a></div>
     </div>
   </div>
 </div>
 <div class="cta-band reveal" style="margin:0;">
-  <div><h2>體驗 5 億+ URL 資料庫的防護力</h2><p>Hexionn URL 過濾解決方案，全面守護企業網路內容安全。</p></div>
+  <div><h2>需要資安專業顧問協助？</h2><p>歡迎聯絡我們的資安顧問，獲取基於 LIONIC DPI 技術的客製化防護方案。</p></div>
   <div style="display:flex;gap:1rem;flex-wrap:wrap;flex-shrink:0;">
     <a href="/contact/" class="btn btn-orange" style="padding:.875rem 1.75rem;font-size:.9375rem;">聯絡顧問<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8.5 3.5L13 8l-4.5 4.5-.707-.707L11.086 8.5H3v-1h8.086L7.793 4.207z"/></svg></a>
     <a href="/blog/" class="btn btn-ghost" style="padding:.875rem 1.75rem;font-size:.9375rem;">更多文章</a>
@@ -117,13 +140,16 @@
 </div>
 <footer>
   <div class="footer-top">
-    <div><img src="/brand_assets/logo.png" alt="Hexionn" style="height:38px;width:auto;filter:brightness(0) invert(1)" /><p class="footer-brand-desc">Hexionn 以 AI 驅動的主動式安全平台，守護全球 2,400+ 家企業抵禦當代與未來威脅。</p></div>
-    <div><div class="f-col-title">UTM 產品</div><a href="/products/pico-utm-100/" class="f-link">Pico-UTM 100</a><a href="/products/dual-ark-utm-16/" class="f-link">Dual Ark-UTM 16</a><a href="/products/tera-utm-12/" class="f-link">Tera-UTM 12</a><a href="/products/lionfilter-200/" class="f-link">Lionfilter 200</a></div>
+    <div><img src="/brand_assets/logo.png" alt="Hexionn" style="height:38px;width:auto;filter:brightness(0) invert(1)" /><p class="footer-brand-desc">Hexionn 採用 LIONIC DPI 核心技術，提供資安、網通、商業系統與數位行銷一站式解決方案。</p></div>
+    <div><div class="f-col-title">NGFW 產品</div><a href="/products/pico-utm-100/" class="f-link">Pico-NGFW 100</a><a href="/products/dual-ark-utm-16/" class="f-link">Dual Ark-NGFW 16</a><a href="/products/tera-utm-12/" class="f-link">Tera-NGFW 12</a><a href="/products/lionfilter-200/" class="f-link">Lionfilter 200</a></div>
     <div><div class="f-col-title">解決方案</div><a href="/solutions/finance/" class="f-link">金融服務</a><a href="/solutions/manufacturing/" class="f-link">製造業</a><a href="/solutions/healthcare/" class="f-link">醫療健康</a><a href="/solutions/government/" class="f-link">政府機構</a></div>
     <div><div class="f-col-title">資源</div><a href="/research/" class="f-link">威脅情報</a><a href="/blog/" class="f-link">資安知識庫</a><a href="/services/" class="f-link">專業服務</a></div>
     <div><div class="f-col-title">聯絡</div><a href="/contact/" class="f-link">聯絡業務</a><a href="mailto:support@hexionnetworks.com" class="f-link">support@hexionnetworks.com</a></div>
   </div>
-  <div class="footer-bottom"><div class="footer-copy">© 2026 Hexionn Corporation. 保留所有權利。</div><div class="footer-legal"><a href="#">隱私政策</a><a href="#">服務條款</a><a href="#">Cookie 設定</a><a href="#">無障礙聲明</a></div></div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Hexionn Corporation. 保留所有權利。<span style="margin-left:1.5rem;font-size:0.7rem;color:rgba(255,255,255,0.2);">本站採用 LIONIC DPI 深度封包檢測核心技術</span></div>
+    <div class="footer-legal"><a href="#">隱私政策</a><a href="#">服務條款</a><a href="#">Cookie 設定</a></div>
+  </div>
 </footer>
 <script>const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.08});document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));</script>
 </body>
