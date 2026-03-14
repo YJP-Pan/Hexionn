@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>整合型解決方案 | Hexionn</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .page-hero { position:relative; padding:8rem 2rem 5rem; background:#0A0A14; overflow:hidden; }
+    .page-hero-glow { position:absolute; inset:0; background:radial-gradient(ellipse 60% 60% at 50% 40%, rgba(250,88,34,0.1) 0%, transparent 70%); pointer-events:none; }
+    .page-hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(250,88,34,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(250,88,34,0.04) 1px,transparent 1px); background-size:48px 48px; pointer-events:none; }
+    .page-hero-inner { max-width:760px; margin:0 auto; text-align:center; position:relative; z-index:2; }
+    .page-hero h1 { font-family:'Syne',sans-serif; font-size:clamp(2.5rem,6vw,4rem); font-weight:800; color:#fff; letter-spacing:-0.03em; margin-bottom:1rem; }
+    .page-hero p { font-family:'Inter',sans-serif; font-size:1.125rem; color:rgba(255,255,255,0.55); line-height:1.7; }
+    .content-sec { max-width:1140px; margin:0 auto; padding:5rem 2rem; }
+    .industry-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:2rem; }
+    .industry-card { position:relative; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.07); border-radius:16px; padding:2.5rem; overflow:hidden; transition:border-color 0.2s, transform 0.2s; text-decoration:none; display:block; }
+    .industry-card:hover { transform:translateY(-3px); }
+    .industry-card-glow { position:absolute; top:0; right:0; width:200px; height:200px; border-radius:50%; opacity:0.08; pointer-events:none; }
+    .industry-num { font-family:'Orbitron',monospace; font-size:0.75rem; font-weight:900; color:rgba(255,255,255,0.2); margin-bottom:1.5rem; }
+    .industry-icon { width:56px; height:56px; border-radius:16px; display:flex; align-items:center; justify-content:center; margin-bottom:1.25rem; }
+    .industry-name { font-family:'Syne',sans-serif; font-size:1.5rem; font-weight:800; color:#fff; margin-bottom:0.75rem; }
+    .industry-desc { font-family:'Inter',sans-serif; font-size:0.9375rem; color:rgba(255,255,255,0.5); line-height:1.7; margin-bottom:1.5rem; }
+    .industry-tags { display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .industry-tag { font-size:0.75rem; font-family:'Inter',sans-serif; padding:0.2rem 0.625rem; border-radius:4px; font-weight:600; }
+    .industry-arrow { position:absolute; bottom:2rem; right:2rem; opacity:0.3; transition:opacity 0.2s, transform 0.2s; }
+    .industry-card:hover .industry-arrow { opacity:1; transform:translateX(4px); }
+    @media(max-width:700px){.industry-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="/contact/">聯絡我們</a>
+  <a href="#">支援中心</a>
+  <a href="#">合作夥伴入口</a>
+</div>
+
+<nav>
+  <a href="/" class="nav-logo"><img src="/brand_assets/logo.png" alt="Hexionn" /></a>
+  <div class="nav-links">
+    <div class="nav-item">
+      <button>平台<svg class="nav-chevron" viewBox="0 0 16 16" fill="currentColor"><path d="M8 11L3 6h10z"/></svg></button>
+      <div class="mega">
+        <div class="mega-col"><div class="mega-label">防護</div><a href="#" class="mega-link">Next-Gen Firewall</a><a href="#" class="mega-link">雲端安全</a><a href="#" class="mega-link">端點防護</a><a href="#" class="mega-link">零信任存取</a></div>
+        <div class="mega-col"><div class="mega-label">營運</div><a href="#" class="mega-link">AI 威脅偵測</a><a href="#" class="mega-link">SIEM 平台</a><a href="#" class="mega-link">自動化回應</a><a href="#" class="mega-link">合規管理</a></div>
+        <div class="mega-col"><div class="mega-label">情報</div><a href="#" class="mega-link">威脅情報</a><a href="#" class="mega-link">攻擊面管理</a><a href="#" class="mega-link">暗網監控</a></div>
+        <div class="mega-col" style="border-left:1px solid rgba(255,255,255,0.06);background:rgba(250,88,34,0.03)">
+          <div class="mega-label" style="color:var(--teal)">UTM 產品線</div>
+          <a href="/products/pico-utm-100/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(250,88,34,0.15);color:var(--o)">IT</span>Pico-UTM 100</a>
+          <a href="/products/dual-ark-utm-16/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(0,200,200,0.12);color:var(--teal)">IoT</span>Dual Ark-UTM 16</a>
+          <a href="/products/tera-utm-12/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(250,88,34,0.12);color:#FF7A45">OT</span>Tera-UTM 12</a>
+          <a href="/products/lionfilter-200/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(167,139,250,0.12);color:#A78BFA">NET</span>Lionfilter 200</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-item active">
+      <button>解決方案<svg class="nav-chevron" viewBox="0 0 16 16" fill="currentColor"><path d="M8 11L3 6h10z"/></svg></button>
+      <div class="mega">
+        <div class="mega-col"><div class="mega-label">產業</div><a href="/solutions/finance/" class="mega-link">金融服務</a><a href="/solutions/manufacturing/" class="mega-link">製造業</a><a href="/solutions/healthcare/" class="mega-link">醫療健康</a><a href="/solutions/government/" class="mega-link">政府機構</a></div>
+        <div class="mega-col"><div class="mega-label">需求</div><a href="#" class="mega-link">雲端遷移安全</a><a href="#" class="mega-link">混合辦公防護</a><a href="#" class="mega-link">供應鏈安全</a></div>
+        <div class="mega-col"><div class="mega-label">規模</div><a href="#" class="mega-link">大型企業</a><a href="#" class="mega-link">中小企業</a><a href="#" class="mega-link">新創公司</a></div>
+      </div>
+    </div>
+    <div class="nav-item"><a href="/services/">服務</a></div>
+    <div class="nav-item"><a href="/research/">研究</a></div>
+    <div class="nav-item"><a href="/about/">關於</a></div>
+  </div>
+  <div class="nav-cta">
+    <a href="/contact/" class="btn btn-ghost" style="padding:0.5rem 1rem;font-size:0.8125rem;">聯絡業務</a>
+    <a href="/contact/" class="btn btn-orange" style="padding:0.5rem 1.125rem;font-size:0.8125rem;">取得報價<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8.5 3.5L13 8l-4.5 4.5-.707-.707L11.086 8.5H3v-1h8.086L7.793 4.207z"/></svg></a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-glow"></div>
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner reveal">
+    <div class="sec-tag" style="margin-bottom:1rem;">產業解決方案</div>
+    <h1>整合型<span class="accent">解決方案</span></h1>
+    <p>針對不同產業的獨特需求，Hexionn 提供量身訂製的資安解決方案，以 UTM 硬體為核心，整合服務與情報，全面守護企業數位資產。</p>
+  </div>
+</section>
+
+<div style="background:#0A0A14;">
+  <div class="content-sec">
+    <div class="industry-grid">
+
+      <a href="/solutions/finance/" class="industry-card reveal" style="border-color:rgba(250,88,34,0.15);">
+        <div class="industry-card-glow" style="background:#FA5822;top:-40px;right:-40px;"></div>
+        <div class="industry-num">01 / 金融服務</div>
+        <div class="industry-icon" style="background:rgba(250,88,34,0.1);">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FA5822" stroke-width="1.8"><rect x="3" y="10" width="18" height="11" rx="2"/><path d="M7 10V7a5 5 0 0110 0v3" stroke-linecap="round"/></svg>
+        </div>
+        <div class="industry-name">金融服務</div>
+        <p class="industry-desc">保護銀行、保險、證券等金融機構的核心系統，滿足 FSC 法規合規要求，防範 APT 攻擊與金融詐欺。</p>
+        <div class="industry-tags">
+          <span class="industry-tag" style="background:rgba(250,88,34,0.1);color:#FA5822;">ATM 防護</span>
+          <span class="industry-tag" style="background:rgba(250,88,34,0.1);color:#FA5822;">核心銀行防護</span>
+          <span class="industry-tag" style="background:rgba(250,88,34,0.1);color:#FA5822;">FSC 合規</span>
+        </div>
+        <svg class="industry-arrow" width="24" height="24" viewBox="0 0 16 16" fill="white"><path d="M8.5 3.5L13 8l-4.5 4.5-.707-.707L11.086 8.5H3v-1h8.086L7.793 4.207z"/></svg>
+      </a>
+
+      <a href="/solutions/manufacturing/" class="industry-card reveal" style="border-color:rgba(0,200,200,0.15);transition-delay:.05s">
+        <div class="industry-card-glow" style="background:#00C8C8;top:-40px;right:-40px;"></div>
+        <div class="industry-num">02 / 製造業</div>
+        <div class="industry-icon" style="background:rgba(0,200,200,0.1);">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00C8C8" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="industry-name">製造業</div>
+        <p class="industry-desc">守護工廠 OT/IT 融合環境，隔離 SCADA 系統與辦公網路，符合 SEMI E187 半導體資安標準，保護生產連續性。</p>
+        <div class="industry-tags">
+          <span class="industry-tag" style="background:rgba(0,200,200,0.1);color:#00C8C8;">OT 隔離</span>
+          <span class="industry-tag" style="background:rgba(0,200,200,0.1);color:#00C8C8;">SEMI E187</span>
+          <span class="industry-tag" style="background:rgba(0,200,200,0.1);color:#00C8C8;">SCADA 防護</span>
+        </div>
+        <svg class="industry-arrow" width="24" height="24" viewBox="0 0 16 16" fill="white"><path d="M8.5 3.5L13 8l-4.5 4.5-.707-.707L11.086 8.5H3v-1h8.086L7.793 4.207z"/></svg>
+      </a>
+
+      <a href="/solutions/healthcare/" class="industry-card reveal" style="border-color:rgba(167,139,250,0.15);transition-delay:.10s">
+        <div class="industry-card-glow" style="background:#A78BFA;top:-40px;right:-40px;"></div>
+        <div class="industry-num">03 / 醫療健康</div>
+        <div class="industry-icon" style="background:rgba(167,139,250,0.1);">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12h6M12 9v6" stroke-linecap="round"/></svg>
+        </div>
+        <div class="industry-name">醫療健康</div>
+        <p class="industry-desc">保護醫院 HIS 系統、醫療物聯網設備與病患隱私資料，防範勒索軟體癱瘓醫療作業，符合個資法規要求。</p>
+        <div class="industry-tags">
+          <span class="industry-tag" style="background:rgba(167,139,250,0.1);color:#A78BFA;">HIS 防護</span>
+          <span class="industry-tag" style="background:rgba(167,139,250,0.1);color:#A78BFA;">醫療 IoT</span>
+          <span class="industry-tag" style="background:rgba(167,139,250,0.1);color:#A78BFA;">HIPAA 合規</span>
+        </div>
+        <svg class="industry-arrow" width="24" height="24" viewBox="0 0 16 16" fill="white"><path d="M8.5 3.5L13 8l-4.5 4.5-.707-.707L11.086 8.5H3v-1h8.086L7.793 4.207z"/></svg>
+      </a>
+
+      <a href="/solutions/government/" class="industry-card reveal" style="border-color:rgba(250,204,21,0.12);transition-delay:.15s">
+        <div class="industry-card-glow" style="background:#FBBF24;top:-40px;right:-40px;"></div>
+        <div class="industry-num">04 / 政府機構</div>
+        <div class="industry-icon" style="background:rgba(250,204,21,0.08);">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="1.8"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 10v11M12 10v11M16 10v11" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="industry-name">政府機構</div>
+        <p class="industry-desc">協助政府單位建立符合資安法規的防護體系，抵禦境外 APT 威脅，保護關鍵基礎設施與公民資料安全。</p>
+        <div class="industry-tags">
+          <span class="industry-tag" style="background:rgba(250,204,21,0.08);color:#FBBF24;">關鍵基礎設施</span>
+          <span class="industry-tag" style="background:rgba(250,204,21,0.08);color:#FBBF24;">APT 防禦</span>
+          <span class="industry-tag" style="background:rgba(250,204,21,0.08);color:#FBBF24;">資安法合規</span>
+        </div>
+        <svg class="industry-arrow" width="24" height="24" viewBox="0 0 16 16" fill="white"><path d="M8.5 3.5L13 8l-4.5 4.5-.707-.707L11.086 8.5H3v-1h8.086L7.793 4.207z"/></svg>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<div class="cta-band reveal" style="margin:0;">
+  <div>
+    <h2>找不到符合需求的方案？</h2>
+    <p>聯絡 Hexionn 解決方案顧問，我們將為您的產業打造專屬資安方案。</p>
+  </div>
+  <div style="display:flex;gap:1rem;flex-wrap:wrap;flex-shrink:0;">
+    <a href="/contact/" class="btn btn-orange" style="padding:.875rem 1.75rem;font-size:.9375rem;">諮詢顧問<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8.5 3.5L13 8l-4.5 4.5-.707-.707L11.086 8.5H3v-1h8.086L7.793 4.207z"/></svg></a>
+    <a href="/services/" class="btn btn-ghost" style="padding:.875rem 1.75rem;font-size:.9375rem;">專業服務</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div><img src="/brand_assets/logo.png" alt="Hexionn" style="height:38px;width:auto;filter:brightness(0) invert(1)" /><p class="footer-brand-desc">Hexionn 以 AI 驅動的主動式安全平台，守護全球 2,400+ 家企業抵禦當代與未來威脅。</p></div>
+    <div><div class="f-col-title">UTM 產品</div><a href="/products/pico-utm-100/" class="f-link">Pico-UTM 100</a><a href="/products/dual-ark-utm-16/" class="f-link">Dual Ark-UTM 16</a><a href="/products/tera-utm-12/" class="f-link">Tera-UTM 12</a><a href="/products/lionfilter-200/" class="f-link">Lionfilter 200</a></div>
+    <div><div class="f-col-title">解決方案</div><a href="/solutions/finance/" class="f-link">金融服務</a><a href="/solutions/manufacturing/" class="f-link">製造業</a><a href="/solutions/healthcare/" class="f-link">醫療健康</a><a href="/solutions/government/" class="f-link">政府機構</a></div>
+    <div><div class="f-col-title">資源</div><a href="/research/" class="f-link">威脅情報</a><a href="/blog/" class="f-link">資安知識庫</a><a href="/services/" class="f-link">專業服務</a></div>
+    <div><div class="f-col-title">聯絡</div><a href="/contact/" class="f-link">聯絡業務</a><a href="mailto:support@hexionnetworks.com" class="f-link">support@hexionnetworks.com</a></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Hexionn Corporation. 保留所有權利。</div>
+    <div class="footer-legal"><a href="#">隱私政策</a><a href="#">服務條款</a><a href="#">Cookie 設定</a><a href="#">無障礙聲明</a></div>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

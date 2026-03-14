@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OT/ICS 工控系統資安完整指南 | Hexionn</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .article-hero{position:relative;padding:8rem 2rem 4rem;background:#0A0A14;overflow:hidden;}
+    .article-hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 50% 50% at 50% 30%,rgba(255,122,69,0.1) 0%,transparent 70%);pointer-events:none;}
+    .article-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,122,69,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,122,69,0.04) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;}
+    .article-inner{max-width:800px;margin:0 auto;position:relative;z-index:2;}
+    .article-cat{display:inline-flex;padding:.3rem .9rem;border-radius:100px;background:rgba(255,122,69,0.12);color:#FF7A45;font-family:'Inter',sans-serif;font-size:.75rem;font-weight:700;margin-bottom:1.25rem;}
+    .article-title{font-family:'Syne',sans-serif;font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;color:#fff;letter-spacing:-0.02em;line-height:1.2;margin-bottom:1.25rem;}
+    .article-meta{display:flex;gap:1.5rem;flex-wrap:wrap;font-family:'Inter',sans-serif;font-size:.8125rem;color:rgba(255,255,255,0.4);}
+    .article-body{max-width:800px;margin:0 auto;padding:4rem 2rem;}
+    .article-body h2{font-family:'Syne',sans-serif;font-size:1.375rem;font-weight:700;color:#fff;margin:2.5rem 0 1rem;}
+    .article-body p{font-family:'Inter',sans-serif;font-size:.9375rem;color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:1.25rem;}
+    .article-body ul{margin-bottom:1.25rem;padding-left:1.25rem;}
+    .article-body li{font-family:'Inter',sans-serif;font-size:.9375rem;color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:.5rem;}
+    .article-body li::marker{color:#FF7A45;}
+    .highlight-box{background:rgba(255,122,69,0.05);border:1px solid rgba(255,122,69,0.2);border-radius:10px;padding:1.5rem 1.75rem;margin:2rem 0;}
+    .highlight-box p{margin:0;color:rgba(255,255,255,0.7);}
+    .breadcrumb{max-width:800px;margin:0 auto;padding:1.25rem 2rem 0;display:flex;gap:.5rem;align-items:center;font-family:'Inter',sans-serif;font-size:.8125rem;color:rgba(255,255,255,0.3);}
+    .breadcrumb a{color:rgba(255,255,255,0.4);text-decoration:none;}
+    .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+    @media(max-width:700px){.related-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+<div class="topbar"><a href="/contact/">聯絡我們</a><a href="#">支援中心</a><a href="#">合作夥伴入口</a></div>
+<nav>
+  <a href="/" class="nav-logo"><img src="/brand_assets/logo.png" alt="Hexionn" /></a>
+  <div class="nav-links">
+    <div class="nav-item"><button>平台<svg class="nav-chevron" viewBox="0 0 16 16" fill="currentColor"><path d="M8 11L3 6h10z"/></svg></button><div class="mega"><div class="mega-col"><div class="mega-label">防護</div><a href="#" class="mega-link">Next-Gen Firewall</a><a href="#" class="mega-link">雲端安全</a><a href="#" class="mega-link">端點防護</a><a href="#" class="mega-link">零信任存取</a></div><div class="mega-col"><div class="mega-label">營運</div><a href="#" class="mega-link">AI 威脅偵測</a><a href="#" class="mega-link">SIEM 平台</a><a href="#" class="mega-link">自動化回應</a><a href="#" class="mega-link">合規管理</a></div><div class="mega-col"><div class="mega-label">情報</div><a href="#" class="mega-link">威脅情報</a><a href="#" class="mega-link">攻擊面管理</a><a href="#" class="mega-link">暗網監控</a></div><div class="mega-col" style="border-left:1px solid rgba(255,255,255,0.06);background:rgba(250,88,34,0.03)"><div class="mega-label" style="color:var(--teal)">UTM 產品線</div><a href="/products/pico-utm-100/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(250,88,34,0.15);color:var(--o)">IT</span>Pico-UTM 100</a><a href="/products/dual-ark-utm-16/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(0,200,200,0.12);color:var(--teal)">IoT</span>Dual Ark-UTM 16</a><a href="/products/tera-utm-12/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(250,88,34,0.12);color:#FF7A45">OT</span>Tera-UTM 12</a><a href="/products/lionfilter-200/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(167,139,250,0.12);color:#A78BFA">NET</span>Lionfilter 200</a></div></div></div>
+    <div class="nav-item"><button>解決方案<svg class="nav-chevron" viewBox="0 0 16 16" fill="currentColor"><path d="M8 11L3 6h10z"/></svg></button><div class="mega"><div class="mega-col"><div class="mega-label">產業</div><a href="/solutions/finance/" class="mega-link">金融服務</a><a href="/solutions/manufacturing/" class="mega-link">製造業</a><a href="/solutions/healthcare/" class="mega-link">醫療健康</a><a href="/solutions/government/" class="mega-link">政府機構</a></div><div class="mega-col"><div class="mega-label">需求</div><a href="#" class="mega-link">雲端遷移安全</a><a href="#" class="mega-link">混合辦公防護</a><a href="#" class="mega-link">供應鏈安全</a></div><div class="mega-col"><div class="mega-label">規模</div><a href="#" class="mega-link">大型企業</a><a href="#" class="mega-link">中小企業</a><a href="#" class="mega-link">新創公司</a></div></div></div>
+    <div class="nav-item"><a href="/services/">服務</a></div>
+    <div class="nav-item"><a href="/research/">研究</a></div>
+    <div class="nav-item"><a href="/about/">關於</a></div>
+  </div>
+  <div class="nav-cta">
+    <a href="/contact/" class="btn btn-ghost" style="padding:0.5rem 1rem;font-size:0.8125rem;">聯絡業務</a>
+    <a href="/contact/" class="btn btn-orange" style="padding:0.5rem 1.125rem;font-size:0.8125rem;">取得報價<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8.5 3.5L13 8l-4.5 4.5-.707-.707L11.086 8.5H3v-1h8.086L7.793 4.207z"/></svg></a>
+  </div>
+</nav>
+<div style="background:#0A0A14;"><div class="breadcrumb"><a href="/">首頁</a><span>›</span><a href="/blog/">知識庫</a><span>›</span><span style="color:rgba(255,255,255,0.6)">OT/ICS 工控系統資安</span></div></div>
+<section class="article-hero">
+  <div class="article-hero-glow"></div><div class="article-hero-grid"></div>
+  <div class="article-inner">
+    <div class="article-cat">產業分析</div>
+    <h1 class="article-title">OT/ICS 工控系統資安完整指南</h1>
+    <div class="article-meta"><span>作者：Hexionn OT 安全研究團隊</span><span>2025 年 10 月 8 日</span><span>9 分鐘閱讀</span></div>
+  </div>
+</section>
+<div style="background:#0A0A14;">
+  <div class="article-body">
+    <p>工業控制系統（ICS）與作業技術（OT）環境的資安問題，在台灣製造業蓬勃發展的背景下，已成為不可忽視的國家級資安議題。從晶圓廠的自動化設備到精密加工廠的 CNC 機台，大量連網設備在提升生產效率的同時，也帶來了前所未有的資安風險。</p>
+
+    <h2>OT 與 IT 資安的根本差異</h2>
+    <p>理解 OT 資安，首先必須了解 OT 與 IT 環境的本質差異。IT 資安的首要目標通常是機密性（Confidentiality）、完整性（Integrity）與可用性（Availability）的 CIA 三角，且三者優先順序相對平衡。</p>
+    <p>OT 環境則截然不同。生產設備的停機意味著直接的財務損失，因此可用性（Availability）通常是最高優先。一台 CNC 機台或晶圓處理設備，往往不允許即時打補丁或重新啟動，因為這會直接中斷生產流程。</p>
+    <div class="highlight-box"><p><strong style="color:#FF7A45;">關鍵數據：</strong>根據 Hexionn 2025 年調查，台灣製造業 OT 環境中，仍有 62% 的設備運行超過 10 年以上的老舊作業系統，其中 Windows XP/7 佔比高達 41%，這些系統已無法獲得官方安全更新。</p></div>
+
+    <h2>OT 環境面臨的主要威脅</h2>
+    <ul>
+      <li><strong>APT 攻擊：</strong>國家級駭客組織針對關鍵製造業發動長期潛伏攻擊，目的包括竊取技術機密與破壞生產能力。</li>
+      <li><strong>勒索軟體：</strong>從 IT 側入侵後橫向移動至 OT 網路，加密 HMI 或 SCADA 伺服器，要求贖金恢復生產。</li>
+      <li><strong>供應鏈攻擊：</strong>透過設備維護廠商、系統整合商等供應鏈合作夥伴滲透目標工廠。</li>
+      <li><strong>內部威脅：</strong>具有 OT 系統存取權限的內部人員，可能因疏失或惡意行為造成重大損害。</li>
+    </ul>
+
+    <h2>OT 網路分段：防禦的第一步</h2>
+    <p>Purdue 模型（ICS 安全模型）是 OT 資安架構設計的經典框架，將工控環境分為五個層級：企業網路（Level 4/5）、工廠管理（Level 3）、過程監控（Level 2）、控制（Level 1）與現場設備（Level 0）。</p>
+    <p>每個層級之間應設置防火牆或 UTM 設備，嚴格限制跨層通訊。特別是 Level 3 與 Level 4 之間的 DMZ（非軍事區），是阻止 IT 威脅滲透 OT 環境的關鍵防線。</p>
+    <p>Hexionn Tera-UTM 12 專為 OT 環境設計，支援 DIN Rail 安裝，適合機台旁部署，提供 L2/L3 網路分段能力，同時支援 Hardware Bypass 功能，確保設備異常時不影響生產連線。</p>
+
+    <h2>SEMI E187 合規要求解析</h2>
+    <p>SEMI E187 是 2022 年發布的半導體設備資安標準，規範了半導體製造設備在軟體安全、網路安全、端點保護及安全監控四個面向的最低要求。台灣主要晶圓廠已陸續要求設備供應商通過 E187 合規認證。</p>
+    <ul>
+      <li><strong>軟體安全：</strong>禁止使用已知存在嚴重漏洞的軟體元件，需建立軟體物料清單（SBOM）。</li>
+      <li><strong>網路安全：</strong>設備必須支援最小化網路存取，禁止不必要的通訊連接埠開放。</li>
+      <li><strong>端點保護：</strong>設備必須具備防毒或白名單機制，防止惡意程式執行。</li>
+      <li><strong>安全監控：</strong>設備必須提供可供外部 SIEM 系統收集的安全事件日誌。</li>
+    </ul>
+
+    <h2>實務部署建議</h2>
+    <p>對於尚未建立 OT 資安防護的製造業者，建議依照以下優先順序逐步推進：第一步，進行 OT 環境資產盤點與風險評估，了解現有設備的網路連接狀況；第二步，實施網路分段，至少在 IT/OT 介面部署 UTM 設備；第三步，對高風險老舊設備採用漏洞屏蔽（Virtual Patching）技術；第四步，建立 OT 設備白名單，僅允許授權應用程式執行；最後，訂閱 OT 威脅情報服務，掌握針對工控系統的最新攻擊手法。</p>
+  </div>
+</div>
+<div style="background:#0A0A14;border-top:1px solid rgba(255,255,255,0.06);">
+  <div style="max-width:800px;margin:0 auto;padding:3rem 2rem;">
+    <div class="sec-tag" style="margin-bottom:2rem;">相關文章</div>
+    <div class="related-grid">
+      <div class="blog-card"><div class="blog-date">2025-08-25</div><div class="blog-title" style="font-size:1rem;">SEMI E187 半導體資安標準完整解說</div><a href="/blog/semi-e187-compliance/" class="blog-read-more">閱讀 →</a></div>
+      <div class="blog-card"><div class="blog-date">2026-01-15</div><div class="blog-title" style="font-size:1rem;">2026 年資安威脅趨勢</div><a href="/blog/cybersecurity-trends-2026/" class="blog-read-more">閱讀 →</a></div>
+      <div class="blog-card"><div class="blog-date">2025-04-10</div><div class="blog-title" style="font-size:1rem;">供應鏈資安攻擊防範</div><a href="/blog/supply-chain-security/" class="blog-read-more">閱讀 →</a></div>
+    </div>
+  </div>
+</div>
+<div class="cta-band reveal" style="margin:0;">
+  <div><h2>需要 OT 資安專業協助？</h2><p>Hexionn OT 資安顧問將為您的製造環境提供最適切的防護方案。</p></div>
+  <div style="display:flex;gap:1rem;flex-wrap:wrap;flex-shrink:0;">
+    <a href="/contact/" class="btn btn-orange" style="padding:.875rem 1.75rem;font-size:.9375rem;">聯絡顧問<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8.5 3.5L13 8l-4.5 4.5-.707-.707L11.086 8.5H3v-1h8.086L7.793 4.207z"/></svg></a>
+    <a href="/blog/" class="btn btn-ghost" style="padding:.875rem 1.75rem;font-size:.9375rem;">更多文章</a>
+  </div>
+</div>
+<footer>
+  <div class="footer-top">
+    <div><img src="/brand_assets/logo.png" alt="Hexionn" style="height:38px;width:auto;filter:brightness(0) invert(1)" /><p class="footer-brand-desc">Hexionn 以 AI 驅動的主動式安全平台，守護全球 2,400+ 家企業抵禦當代與未來威脅。</p></div>
+    <div><div class="f-col-title">UTM 產品</div><a href="/products/pico-utm-100/" class="f-link">Pico-UTM 100</a><a href="/products/dual-ark-utm-16/" class="f-link">Dual Ark-UTM 16</a><a href="/products/tera-utm-12/" class="f-link">Tera-UTM 12</a><a href="/products/lionfilter-200/" class="f-link">Lionfilter 200</a></div>
+    <div><div class="f-col-title">解決方案</div><a href="/solutions/finance/" class="f-link">金融服務</a><a href="/solutions/manufacturing/" class="f-link">製造業</a><a href="/solutions/healthcare/" class="f-link">醫療健康</a><a href="/solutions/government/" class="f-link">政府機構</a></div>
+    <div><div class="f-col-title">資源</div><a href="/research/" class="f-link">威脅情報</a><a href="/blog/" class="f-link">資安知識庫</a><a href="/services/" class="f-link">專業服務</a></div>
+    <div><div class="f-col-title">聯絡</div><a href="/contact/" class="f-link">聯絡業務</a><a href="mailto:support@hexionnetworks.com" class="f-link">support@hexionnetworks.com</a></div>
+  </div>
+  <div class="footer-bottom"><div class="footer-copy">© 2026 Hexionn Corporation. 保留所有權利。</div><div class="footer-legal"><a href="#">隱私政策</a><a href="#">服務條款</a><a href="#">Cookie 設定</a><a href="#">無障礙聲明</a></div></div>
+</footer>
+<script>const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.08});document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));</script>
+</body>
+</html>

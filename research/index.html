@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>威脅研究與資安情報 | Hexionn</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .page-hero { position:relative; padding:8rem 2rem 5rem; background:#0A0A14; overflow:hidden; }
+    .page-hero-glow { position:absolute; inset:0; background:radial-gradient(ellipse 60% 60% at 50% 40%, rgba(0,200,200,0.1) 0%, transparent 70%); pointer-events:none; }
+    .page-hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(0,200,200,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,200,200,0.04) 1px,transparent 1px); background-size:48px 48px; pointer-events:none; }
+    .page-hero-inner { max-width:760px; margin:0 auto; text-align:center; position:relative; z-index:2; }
+    .page-hero h1 { font-family:'Syne',sans-serif; font-size:clamp(2.5rem,6vw,4rem); font-weight:800; color:#fff; letter-spacing:-0.03em; margin-bottom:1rem; }
+    .page-hero p { font-family:'Inter',sans-serif; font-size:1.125rem; color:rgba(255,255,255,0.55); line-height:1.7; }
+    .content-sec { max-width:1140px; margin:0 auto; padding:5rem 2rem; }
+    .stat-band { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-bottom:5rem; }
+    .stat-item { background:rgba(0,200,200,0.05); border:1px solid rgba(0,200,200,0.15); border-radius:12px; padding:1.75rem 1.5rem; text-align:center; }
+    .stat-num { font-family:'Orbitron',monospace; font-size:1.75rem; font-weight:900; color:#00C8C8; line-height:1; margin-bottom:0.5rem; }
+    .stat-label { font-family:'Inter',sans-serif; font-size:0.8375rem; color:rgba(255,255,255,0.45); }
+    .research-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.75rem; margin-bottom:5rem; }
+    .research-card { background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.07); border-radius:14px; overflow:hidden; transition:border-color 0.2s; }
+    .research-card:hover { border-color:rgba(0,200,200,0.3); }
+    .research-card-top { padding:1.75rem 1.75rem 0; }
+    .research-tag { display:inline-flex; padding:0.25rem 0.75rem; border-radius:100px; font-size:0.75rem; font-weight:700; font-family:'Inter',sans-serif; background:rgba(0,200,200,0.12); color:#00C8C8; margin-bottom:1rem; }
+    .research-title { font-family:'Syne',sans-serif; font-size:1.125rem; font-weight:700; color:#fff; margin-bottom:0.75rem; line-height:1.4; }
+    .research-desc { font-family:'Inter',sans-serif; font-size:0.875rem; color:rgba(255,255,255,0.5); line-height:1.65; }
+    .research-card-bottom { padding:1.25rem 1.75rem 1.75rem; display:flex; align-items:center; justify-content:space-between; margin-top:1rem; border-top:1px solid rgba(255,255,255,0.06); }
+    .research-date { font-size:0.75rem; color:rgba(255,255,255,0.3); font-family:'Inter',sans-serif; }
+    .research-link { font-size:0.8125rem; color:#00C8C8; font-weight:600; text-decoration:none; font-family:'Inter',sans-serif; }
+    .threat-table { width:100%; border-collapse:collapse; }
+    .threat-table th { font-family:'Inter',sans-serif; font-size:0.8125rem; font-weight:600; color:rgba(255,255,255,0.4); text-align:left; padding:0.875rem 1rem; border-bottom:1px solid rgba(255,255,255,0.08); }
+    .threat-table td { font-family:'Inter',sans-serif; font-size:0.875rem; color:rgba(255,255,255,0.7); padding:1rem; border-bottom:1px solid rgba(255,255,255,0.05); }
+    .threat-table tr:hover td { background:rgba(255,255,255,0.02); }
+    .sev-badge { display:inline-flex; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.7rem; font-weight:700; }
+    .sev-critical { background:rgba(239,68,68,0.15); color:#F87171; }
+    .sev-high { background:rgba(250,88,34,0.15); color:#FA5822; }
+    .sev-medium { background:rgba(250,204,21,0.12); color:#FBBF24; }
+    @media(max-width:900px){.research-grid{grid-template-columns:1fr 1fr;}.stat-band{grid-template-columns:1fr 1fr;}}
+    @media(max-width:600px){.research-grid{grid-template-columns:1fr;}.stat-band{grid-template-columns:1fr 1fr;}}
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="/contact/">聯絡我們</a>
+  <a href="#">支援中心</a>
+  <a href="#">合作夥伴入口</a>
+</div>
+
+<nav>
+  <a href="/" class="nav-logo"><img src="/brand_assets/logo.png" alt="Hexionn" /></a>
+  <div class="nav-links">
+    <div class="nav-item">
+      <button>平台<svg class="nav-chevron" viewBox="0 0 16 16" fill="currentColor"><path d="M8 11L3 6h10z"/></svg></button>
+      <div class="mega">
+        <div class="mega-col"><div class="mega-label">防護</div><a href="#" class="mega-link">Next-Gen Firewall</a><a href="#" class="mega-link">雲端安全</a><a href="#" class="mega-link">端點防護</a><a href="#" class="mega-link">零信任存取</a></div>
+        <div class="mega-col"><div class="mega-label">營運</div><a href="#" class="mega-link">AI 威脅偵測</a><a href="#" class="mega-link">SIEM 平台</a><a href="#" class="mega-link">自動化回應</a><a href="#" class="mega-link">合規管理</a></div>
+        <div class="mega-col"><div class="mega-label">情報</div><a href="#" class="mega-link">威脅情報</a><a href="#" class="mega-link">攻擊面管理</a><a href="#" class="mega-link">暗網監控</a></div>
+        <div class="mega-col" style="border-left:1px solid rgba(255,255,255,0.06);background:rgba(250,88,34,0.03)">
+          <div class="mega-label" style="color:var(--teal)">UTM 產品線</div>
+          <a href="/products/pico-utm-100/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(250,88,34,0.15);color:var(--o)">IT</span>Pico-UTM 100</a>
+          <a href="/products/dual-ark-utm-16/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(0,200,200,0.12);color:var(--teal)">IoT</span>Dual Ark-UTM 16</a>
+          <a href="/products/tera-utm-12/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(250,88,34,0.12);color:#FF7A45">OT</span>Tera-UTM 12</a>
+          <a href="/products/lionfilter-200/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(167,139,250,0.12);color:#A78BFA">NET</span>Lionfilter 200</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-item">
+      <button>解決方案<svg class="nav-chevron" viewBox="0 0 16 16" fill="currentColor"><path d="M8 11L3 6h10z"/></svg></button>
+      <div class="mega">
+        <div class="mega-col"><div class="mega-label">產業</div><a href="/solutions/finance/" class="mega-link">金融服務</a><a href="/solutions/manufacturing/" class="mega-link">製造業</a><a href="/solutions/healthcare/" class="mega-link">醫療健康</a><a href="/solutions/government/" class="mega-link">政府機構</a></div>
+        <div class="mega-col"><div class="mega-label">需求</div><a href="#" class="mega-link">雲端遷移安全</a><a href="#" class="mega-link">混合辦公防護</a><a href="#" class="mega-link">供應鏈安全</a></div>
+        <div class="mega-col"><div class="mega-label">規模</div><a href="#" class="mega-link">大型企業</a><a href="#" class="mega-link">中小企業</a><a href="#" class="mega-link">新創公司</a></div>
+      </div>
+    </div>
+    <div class="nav-item"><a href="/services/">服務</a></div>
+    <div class="nav-item active"><a href="/research/">研究</a></div>
+    <div class="nav-item"><a href="/about/">關於</a></div>
+  </div>
+  <div class="nav-cta">
+    <a href="/contact/" class="btn btn-ghost" style="padding:0.5rem 1rem;font-size:0.8125rem;">聯絡業務</a>
+    <a href="/contact/" class="btn btn-orange" style="padding:0.5rem 1.125rem;font-size:0.8125rem;">取得報價<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8.5 3.5L13 8l-4.5 4.5-.707-.707L11.086 8.5H3v-1h8.086L7.793 4.207z"/></svg></a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="page-hero">
+  <div class="page-hero-glow"></div>
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner reveal">
+    <div class="sec-tag" style="margin-bottom:1rem;color:#00C8C8;border-color:rgba(0,200,200,0.3)">情報中心</div>
+    <h1>威脅研究與<span style="color:#00C8C8">資安情報</span></h1>
+    <p>Hexionn 威脅研究團隊持續監控全球惡意活動，提供最新威脅情報與深度技術分析，協助企業超前部署防禦。</p>
+  </div>
+</section>
+
+<div style="background:#0A0A14;">
+  <div class="content-sec">
+
+    <!-- Stats -->
+    <div class="stat-band reveal">
+      <div class="stat-item">
+        <div class="stat-num">500億+</div>
+        <div class="stat-label">每日威脅信號分析量</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5億+</div>
+        <div class="stat-label">URL 黑名單資料庫</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">1,000+</div>
+        <div class="stat-label">App 特徵識別</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">20年</div>
+        <div class="stat-label">累積威脅樣本研究</div>
+      </div>
+    </div>
+
+    <!-- Research Reports -->
+    <div class="reveal">
+      <div style="text-align:center;margin-bottom:3rem;">
+        <div class="sec-tag" style="color:#00C8C8;border-color:rgba(0,200,200,0.3)">研究報告</div>
+        <h2 class="sec-h">最新<span style="color:#00C8C8">研究成果</span></h2>
+      </div>
+      <div class="research-grid">
+        <div class="research-card">
+          <div class="research-card-top">
+            <div class="research-tag">年度報告</div>
+            <div class="research-title">2026 台灣資安威脅態勢年度報告</div>
+            <p class="research-desc">全面分析 2025 年台灣資安事件趨勢，涵蓋 APT 攻擊、勒索軟體、OT 威脅等關鍵領域，提供 2026 年防禦建議。</p>
+          </div>
+          <div class="research-card-bottom">
+            <div class="research-date">2026 年 1 月發布</div>
+            <a href="/blog/cybersecurity-trends-2026/" class="research-link">閱讀報告 →</a>
+          </div>
+        </div>
+        <div class="research-card">
+          <div class="research-card-top">
+            <div class="research-tag">技術白皮書</div>
+            <div class="research-title">DPI 深度封包檢測技術原理與應用</div>
+            <p class="research-desc">深入解析 Hexionn 自研 DPI 引擎的技術架構，說明如何在不影響效能的前提下識別並攔截第 7 層應用層威脅。</p>
+          </div>
+          <div class="research-card-bottom">
+            <div class="research-date">2025 年 11 月發布</div>
+            <a href="/blog/dpi-deep-packet-inspection/" class="research-link">閱讀報告 →</a>
+          </div>
+        </div>
+        <div class="research-card">
+          <div class="research-card-top">
+            <div class="research-tag">產業分析</div>
+            <div class="research-title">OT/ICS 工控系統資安威脅分析</div>
+            <p class="research-desc">針對製造業與半導體廠 OT 環境的威脅現況調查，分析 Stuxnet 後繼威脅演進，提供 SEMI E187 合規建議。</p>
+          </div>
+          <div class="research-card-bottom">
+            <div class="research-date">2025 年 10 月發布</div>
+            <a href="/blog/ot-ics-security-guide/" class="research-link">閱讀報告 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Threats Table -->
+    <div class="reveal">
+      <div style="text-align:center;margin-bottom:2.5rem;">
+        <div class="sec-tag" style="color:#00C8C8;border-color:rgba(0,200,200,0.3)">即時情報</div>
+        <h2 class="sec-h">近期<span style="color:#00C8C8">高風險威脅</span></h2>
+      </div>
+      <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.07);border-radius:12px;overflow:hidden;">
+        <table class="threat-table">
+          <thead>
+            <tr>
+              <th>威脅名稱</th>
+              <th>類型</th>
+              <th>嚴重等級</th>
+              <th>影響產業</th>
+              <th>更新日期</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>LockBit 4.0 變種</td>
+              <td>勒索軟體</td>
+              <td><span class="sev-badge sev-critical">嚴重</span></td>
+              <td>金融、製造</td>
+              <td>2026-03-10</td>
+            </tr>
+            <tr>
+              <td>APT41 新型 RAT</td>
+              <td>APT 攻擊</td>
+              <td><span class="sev-badge sev-critical">嚴重</span></td>
+              <td>半導體、政府</td>
+              <td>2026-03-08</td>
+            </tr>
+            <tr>
+              <td>Mirai.OT.2026</td>
+              <td>IoT 殭屍網路</td>
+              <td><span class="sev-badge sev-high">高</span></td>
+              <td>製造、醫療</td>
+              <td>2026-03-05</td>
+            </tr>
+            <tr>
+              <td>CVE-2026-1337 SCADA 漏洞</td>
+              <td>漏洞利用</td>
+              <td><span class="sev-badge sev-high">高</span></td>
+              <td>工控、能源</td>
+              <td>2026-03-01</td>
+            </tr>
+            <tr>
+              <td>PhishKit.TW.Banking</td>
+              <td>網路釣魚</td>
+              <td><span class="sev-badge sev-medium">中</span></td>
+              <td>金融服務</td>
+              <td>2026-02-28</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-band reveal" style="margin:0;">
+  <div>
+    <h2>訂閱威脅情報快報</h2>
+    <p>每週精選最新威脅分析，直送您的信箱，讓防禦永遠領先攻擊者一步。</p>
+  </div>
+  <div style="display:flex;gap:1rem;flex-wrap:wrap;flex-shrink:0;">
+    <a href="/contact/" class="btn btn-orange" style="padding:.875rem 1.75rem;font-size:.9375rem;">聯絡訂閱<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8.5 3.5L13 8l-4.5 4.5-.707-.707L11.086 8.5H3v-1h8.086L7.793 4.207z"/></svg></a>
+    <a href="/blog/" class="btn btn-ghost" style="padding:.875rem 1.75rem;font-size:.9375rem;">資安知識庫</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div><img src="/brand_assets/logo.png" alt="Hexionn" style="height:38px;width:auto;filter:brightness(0) invert(1)" /><p class="footer-brand-desc">Hexionn 以 AI 驅動的主動式安全平台，守護全球 2,400+ 家企業抵禦當代與未來威脅。</p></div>
+    <div><div class="f-col-title">UTM 產品</div><a href="/products/pico-utm-100/" class="f-link">Pico-UTM 100</a><a href="/products/dual-ark-utm-16/" class="f-link">Dual Ark-UTM 16</a><a href="/products/tera-utm-12/" class="f-link">Tera-UTM 12</a><a href="/products/lionfilter-200/" class="f-link">Lionfilter 200</a></div>
+    <div><div class="f-col-title">解決方案</div><a href="/solutions/finance/" class="f-link">金融服務</a><a href="/solutions/manufacturing/" class="f-link">製造業</a><a href="/solutions/healthcare/" class="f-link">醫療健康</a><a href="/solutions/government/" class="f-link">政府機構</a></div>
+    <div><div class="f-col-title">資源</div><a href="/research/" class="f-link">威脅情報</a><a href="/blog/" class="f-link">資安知識庫</a><a href="/services/" class="f-link">專業服務</a></div>
+    <div><div class="f-col-title">聯絡</div><a href="/contact/" class="f-link">聯絡業務</a><a href="mailto:support@hexionnetworks.com" class="f-link">support@hexionnetworks.com</a></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Hexionn Corporation. 保留所有權利。</div>
+    <div class="footer-legal"><a href="#">隱私政策</a><a href="#">服務條款</a><a href="#">Cookie 設定</a><a href="#">無障礙聲明</a></div>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

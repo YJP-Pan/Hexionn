@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>政府機構資安解決方案 | Hexionn</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .page-hero{position:relative;padding:8rem 2rem 5rem;background:#0A0A14;overflow:hidden;}
+    .page-hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 40%,rgba(250,204,21,0.08) 0%,transparent 70%);pointer-events:none;}
+    .page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(250,204,21,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(250,204,21,0.03) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;}
+    .page-hero-inner{max-width:760px;margin:0 auto;text-align:center;position:relative;z-index:2;}
+    .page-hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;color:#fff;letter-spacing:-0.03em;margin-bottom:1rem;}
+    .page-hero p{font-family:'Inter',sans-serif;font-size:1.0625rem;color:rgba(255,255,255,0.55);line-height:1.7;}
+    .content-sec{max-width:1140px;margin:0 auto;padding:5rem 2rem;}
+    .breadcrumb{max-width:1140px;margin:0 auto;padding:1.25rem 2rem 0;display:flex;gap:0.5rem;align-items:center;font-family:'Inter',sans-serif;font-size:0.8125rem;color:rgba(255,255,255,0.3);}
+    .breadcrumb a{color:rgba(255,255,255,0.4);text-decoration:none;}
+    .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+    .feat-card{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:1.75rem;}
+    .feat-icon{width:44px;height:44px;border-radius:12px;background:rgba(250,204,21,0.07);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;}
+    .feat-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:#fff;margin-bottom:0.5rem;}
+    .feat-desc{font-family:'Inter',sans-serif;font-size:0.875rem;color:rgba(255,255,255,0.5);line-height:1.65;}
+    @media(max-width:800px){.feat-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:500px){.feat-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+<div class="topbar"><a href="/contact/">聯絡我們</a><a href="#">支援中心</a><a href="#">合作夥伴入口</a></div>
+<nav>
+  <a href="/" class="nav-logo"><img src="/brand_assets/logo.png" alt="Hexionn" /></a>
+  <div class="nav-links">
+    <div class="nav-item"><button>平台<svg class="nav-chevron" viewBox="0 0 16 16" fill="currentColor"><path d="M8 11L3 6h10z"/></svg></button><div class="mega"><div class="mega-col"><div class="mega-label">防護</div><a href="#" class="mega-link">Next-Gen Firewall</a><a href="#" class="mega-link">雲端安全</a><a href="#" class="mega-link">端點防護</a><a href="#" class="mega-link">零信任存取</a></div><div class="mega-col"><div class="mega-label">營運</div><a href="#" class="mega-link">AI 威脅偵測</a><a href="#" class="mega-link">SIEM 平台</a><a href="#" class="mega-link">自動化回應</a><a href="#" class="mega-link">合規管理</a></div><div class="mega-col"><div class="mega-label">情報</div><a href="#" class="mega-link">威脅情報</a><a href="#" class="mega-link">攻擊面管理</a><a href="#" class="mega-link">暗網監控</a></div><div class="mega-col" style="border-left:1px solid rgba(255,255,255,0.06);background:rgba(250,88,34,0.03)"><div class="mega-label" style="color:var(--teal)">UTM 產品線</div><a href="/products/pico-utm-100/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(250,88,34,0.15);color:var(--o)">IT</span>Pico-UTM 100</a><a href="/products/dual-ark-utm-16/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(0,200,200,0.12);color:var(--teal)">IoT</span>Dual Ark-UTM 16</a><a href="/products/tera-utm-12/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(250,88,34,0.12);color:#FF7A45">OT</span>Tera-UTM 12</a><a href="/products/lionfilter-200/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(167,139,250,0.12);color:#A78BFA">NET</span>Lionfilter 200</a></div></div></div>
+    <div class="nav-item active"><button>解決方案<svg class="nav-chevron" viewBox="0 0 16 16" fill="currentColor"><path d="M8 11L3 6h10z"/></svg></button><div class="mega"><div class="mega-col"><div class="mega-label">產業</div><a href="/solutions/finance/" class="mega-link">金融服務</a><a href="/solutions/manufacturing/" class="mega-link">製造業</a><a href="/solutions/healthcare/" class="mega-link">醫療健康</a><a href="/solutions/government/" class="mega-link">政府機構</a></div><div class="mega-col"><div class="mega-label">需求</div><a href="#" class="mega-link">雲端遷移安全</a><a href="#" class="mega-link">混合辦公防護</a><a href="#" class="mega-link">供應鏈安全</a></div><div class="mega-col"><div class="mega-label">規模</div><a href="#" class="mega-link">大型企業</a><a href="#" class="mega-link">中小企業</a><a href="#" class="mega-link">新創公司</a></div></div></div>
+    <div class="nav-item"><a href="/services/">服務</a></div>
+    <div class="nav-item"><a href="/research/">研究</a></div>
+    <div class="nav-item"><a href="/about/">關於</a></div>
+  </div>
+  <div class="nav-cta">
+    <a href="/contact/" class="btn btn-ghost" style="padding:0.5rem 1rem;font-size:0.8125rem;">聯絡業務</a>
+    <a href="/contact/" class="btn btn-orange" style="padding:0.5rem 1.125rem;font-size:0.8125rem;">取得報價<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8.5 3.5L13 8l-4.5 4.5-.707-.707L11.086 8.5H3v-1h8.086L7.793 4.207z"/></svg></a>
+  </div>
+</nav>
+
+<div style="background:#0A0A14;"><div class="breadcrumb"><a href="/">首頁</a><span>›</span><a href="/solutions/">解決方案</a><span>›</span><span style="color:rgba(255,255,255,0.6)">政府機構</span></div></div>
+
+<section class="page-hero">
+  <div class="page-hero-glow"></div>
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner reveal">
+    <div class="sec-tag" style="margin-bottom:1rem;color:#FBBF24;border-color:rgba(250,204,21,0.25)">政府機構</div>
+    <h1>政府機構<span style="color:#FBBF24">資安解決方案</span></h1>
+    <p>協助政府單位建立符合資安法規的防護體系，抵禦境外 APT 威脅，保護關鍵基礎設施與公民資料安全。</p>
+  </div>
+</section>
+
+<div style="background:#0A0A14;">
+  <div class="content-sec">
+    <div class="feat-grid reveal">
+      <div class="feat-card">
+        <div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="1.8"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 10v11M12 10v11M16 10v11" stroke-linecap="round"/></svg></div>
+        <div class="feat-title">關鍵基礎設施防護</div>
+        <p class="feat-desc">針對電力、水利、交通等關鍵基礎設施的 OT 系統，提供專屬防護方案，防止駭客攻擊造成社會影響。</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="feat-title">APT 進階威脅偵測</div>
+        <p class="feat-desc">透過 DPI 深度分析識別針對政府機構的 APT 攻擊行為，即時阻斷境外惡意連線，保護敏感政府資料。</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="1.8"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" stroke-linecap="round"/></svg></div>
+        <div class="feat-title">資安法合規</div>
+        <p class="feat-desc">協助政府機關符合行政院資通安全管理法規要求，提供完整的合規評估與改善輔導服務。</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3" stroke-linecap="round"/></svg></div>
+        <div class="feat-title">公民資料保護</div>
+        <p class="feat-desc">嚴格管控涉及公民個資的系統存取行為，防止內部威脅與外部攻擊導致個人資料外洩事件。</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-linecap="round"/></svg></div>
+        <div class="feat-title">跨機關統一管理</div>
+        <p class="feat-desc">CMS 管理平台支援多機關統一部署與政策管控，適合跨部會的資安管理需求，降低管理成本。</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke-linecap="round"/></svg></div>
+        <div class="feat-title">資安事件應變</div>
+        <p class="feat-desc">提供政府機關專屬的資安事件應變服務，協助快速恢復系統運作，降低攻擊事件的業務衝擊。</p>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:5rem;text-align:center;">
+      <div class="sec-tag" style="color:#FBBF24;border-color:rgba(250,204,21,0.25);margin-bottom:1rem;">推薦方案</div>
+      <h2 class="sec-h">政府機構建議<span style="color:#FBBF24">整合部署</span></h2>
+      <p style="font-family:'Inter',sans-serif;font-size:0.9375rem;color:rgba(255,255,255,0.5);max-width:600px;margin:1rem auto 2rem;line-height:1.7;">結合 Pico-UTM 100 部署於各分支機關，Dual Ark-UTM 16 保護主要機房，搭配 CMS 平台實現跨機關統一治理。</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="/products/pico-utm-100/" class="btn btn-orange" style="padding:.75rem 1.5rem;font-size:.875rem;">Pico-UTM 100</a>
+        <a href="/products/dual-ark-utm-16/" class="btn btn-ghost" style="padding:.75rem 1.5rem;font-size:.875rem;">Dual Ark-UTM 16</a>
+        <a href="/contact/" class="btn btn-ghost" style="padding:.75rem 1.5rem;font-size:.875rem;">聯絡顧問</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-band reveal" style="margin:0;">
+  <div><h2>保護公共資安基礎設施</h2><p>聯絡 Hexionn 政府業務團隊，取得符合政府採購規範的方案報價。</p></div>
+  <div style="display:flex;gap:1rem;flex-wrap:wrap;flex-shrink:0;">
+    <a href="/contact/" class="btn btn-orange" style="padding:.875rem 1.75rem;font-size:.9375rem;">取得報價<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8.5 3.5L13 8l-4.5 4.5-.707-.707L11.086 8.5H3v-1h8.086L7.793 4.207z"/></svg></a>
+    <a href="/solutions/" class="btn btn-ghost" style="padding:.875rem 1.75rem;font-size:.9375rem;">其他產業方案</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div><img src="/brand_assets/logo.png" alt="Hexionn" style="height:38px;width:auto;filter:brightness(0) invert(1)" /><p class="footer-brand-desc">Hexionn 以 AI 驅動的主動式安全平台，守護全球 2,400+ 家企業抵禦當代與未來威脅。</p></div>
+    <div><div class="f-col-title">UTM 產品</div><a href="/products/pico-utm-100/" class="f-link">Pico-UTM 100</a><a href="/products/dual-ark-utm-16/" class="f-link">Dual Ark-UTM 16</a><a href="/products/tera-utm-12/" class="f-link">Tera-UTM 12</a><a href="/products/lionfilter-200/" class="f-link">Lionfilter 200</a></div>
+    <div><div class="f-col-title">解決方案</div><a href="/solutions/finance/" class="f-link">金融服務</a><a href="/solutions/manufacturing/" class="f-link">製造業</a><a href="/solutions/healthcare/" class="f-link">醫療健康</a><a href="/solutions/government/" class="f-link">政府機構</a></div>
+    <div><div class="f-col-title">資源</div><a href="/research/" class="f-link">威脅情報</a><a href="/blog/" class="f-link">資安知識庫</a><a href="/services/" class="f-link">專業服務</a></div>
+    <div><div class="f-col-title">聯絡</div><a href="/contact/" class="f-link">聯絡業務</a><a href="mailto:support@hexionnetworks.com" class="f-link">support@hexionnetworks.com</a></div>
+  </div>
+  <div class="footer-bottom"><div class="footer-copy">© 2026 Hexionn Corporation. 保留所有權利。</div><div class="footer-legal"><a href="#">隱私政策</a><a href="#">服務條款</a><a href="#">Cookie 設定</a><a href="#">無障礙聲明</a></div></div>
+</footer>
+<script>const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.08});document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));</script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>資安知識庫 | Hexionn</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .page-hero{position:relative;padding:8rem 2rem 5rem;background:#0A0A14;overflow:hidden;}
+    .page-hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 40%,rgba(250,88,34,0.1) 0%,transparent 70%);pointer-events:none;}
+    .page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(250,88,34,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(250,88,34,0.04) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;}
+    .page-hero-inner{max-width:760px;margin:0 auto;text-align:center;position:relative;z-index:2;}
+    .page-hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,6vw,4rem);font-weight:800;color:#fff;letter-spacing:-0.03em;margin-bottom:1rem;}
+    .page-hero p{font-family:'Inter',sans-serif;font-size:1.125rem;color:rgba(255,255,255,0.55);line-height:1.7;}
+    .content-sec{max-width:1140px;margin:0 auto;padding:5rem 2rem;}
+  </style>
+</head>
+<body>
+<div class="topbar"><a href="/contact/">聯絡我們</a><a href="#">支援中心</a><a href="#">合作夥伴入口</a></div>
+<nav>
+  <a href="/" class="nav-logo"><img src="/brand_assets/logo.png" alt="Hexionn" /></a>
+  <div class="nav-links">
+    <div class="nav-item"><button>平台<svg class="nav-chevron" viewBox="0 0 16 16" fill="currentColor"><path d="M8 11L3 6h10z"/></svg></button><div class="mega"><div class="mega-col"><div class="mega-label">防護</div><a href="#" class="mega-link">Next-Gen Firewall</a><a href="#" class="mega-link">雲端安全</a><a href="#" class="mega-link">端點防護</a><a href="#" class="mega-link">零信任存取</a></div><div class="mega-col"><div class="mega-label">營運</div><a href="#" class="mega-link">AI 威脅偵測</a><a href="#" class="mega-link">SIEM 平台</a><a href="#" class="mega-link">自動化回應</a><a href="#" class="mega-link">合規管理</a></div><div class="mega-col"><div class="mega-label">情報</div><a href="#" class="mega-link">威脅情報</a><a href="#" class="mega-link">攻擊面管理</a><a href="#" class="mega-link">暗網監控</a></div><div class="mega-col" style="border-left:1px solid rgba(255,255,255,0.06);background:rgba(250,88,34,0.03)"><div class="mega-label" style="color:var(--teal)">UTM 產品線</div><a href="/products/pico-utm-100/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(250,88,34,0.15);color:var(--o)">IT</span>Pico-UTM 100</a><a href="/products/dual-ark-utm-16/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(0,200,200,0.12);color:var(--teal)">IoT</span>Dual Ark-UTM 16</a><a href="/products/tera-utm-12/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(250,88,34,0.12);color:#FF7A45">OT</span>Tera-UTM 12</a><a href="/products/lionfilter-200/" class="mega-link mega-link-product"><span class="mega-prod-badge" style="background:rgba(167,139,250,0.12);color:#A78BFA">NET</span>Lionfilter 200</a></div></div></div>
+    <div class="nav-item"><button>解決方案<svg class="nav-chevron" viewBox="0 0 16 16" fill="currentColor"><path d="M8 11L3 6h10z"/></svg></button><div class="mega"><div class="mega-col"><div class="mega-label">產業</div><a href="/solutions/finance/" class="mega-link">金融服務</a><a href="/solutions/manufacturing/" class="mega-link">製造業</a><a href="/solutions/healthcare/" class="mega-link">醫療健康</a><a href="/solutions/government/" class="mega-link">政府機構</a></div><div class="mega-col"><div class="mega-label">需求</div><a href="#" class="mega-link">雲端遷移安全</a><a href="#" class="mega-link">混合辦公防護</a><a href="#" class="mega-link">供應鏈安全</a></div><div class="mega-col"><div class="mega-label">規模</div><a href="#" class="mega-link">大型企業</a><a href="#" class="mega-link">中小企業</a><a href="#" class="mega-link">新創公司</a></div></div></div>
+    <div class="nav-item"><a href="/services/">服務</a></div>
+    <div class="nav-item"><a href="/research/">研究</a></div>
+    <div class="nav-item"><a href="/about/">關於</a></div>
+  </div>
+  <div class="nav-cta">
+    <a href="/contact/" class="btn btn-ghost" style="padding:0.5rem 1rem;font-size:0.8125rem;">聯絡業務</a>
+    <a href="/contact/" class="btn btn-orange" style="padding:0.5rem 1.125rem;font-size:0.8125rem;">取得報價<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8.5 3.5L13 8l-4.5 4.5-.707-.707L11.086 8.5H3v-1h8.086L7.793 4.207z"/></svg></a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-glow"></div>
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner reveal">
+    <div class="sec-tag" style="margin-bottom:1rem;">知識庫</div>
+    <h1>資安<span class="accent">知識庫</span></h1>
+    <p>Hexionn 資安研究團隊分享最新威脅分析、技術深度解析與產業資安趨勢，協助企業洞悉威脅、超前防禦。</p>
+  </div>
+</section>
+
+<div style="background:#0A0A14;">
+  <div class="content-sec">
+    <div class="blog-grid reveal">
+
+      <div class="blog-card">
+        <div class="blog-date">2026-01-15 · 年度報告 · 8 分鐘閱讀</div>
+        <div class="blog-title">2026 年資安威脅趨勢：AI 驅動攻擊全面來襲</div>
+        <p class="blog-excerpt">深度解析 2026 年最值得關注的資安威脅，包含 AI 生成式釣魚攻擊、勒索軟體即服務（RaaS）演進，以及針對台灣半導體供應鏈的 APT 威脅。</p>
+        <a href="/blog/cybersecurity-trends-2026/" class="blog-read-more">閱讀全文 →</a>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-date">2025-11-20 · 技術解析 · 7 分鐘閱讀</div>
+        <div class="blog-title">DPI 深度封包檢測技術原理與企業應用</div>
+        <p class="blog-excerpt">深入解析深度封包檢測（DPI）技術如何在不影響網路效能的前提下，識別第 7 層應用層威脅，並說明其在 UTM 設備中的實際應用方式。</p>
+        <a href="/blog/dpi-deep-packet-inspection/" class="blog-read-more">閱讀全文 →</a>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-date">2025-10-08 · 產業分析 · 9 分鐘閱讀</div>
+        <div class="blog-title">OT/ICS 工控系統資安完整指南</div>
+        <p class="blog-excerpt">製造業與半導體廠的 OT/ICS 環境面臨前所未有的資安威脅。本文分析當前 OT 攻擊手法，並提供從網路分段到 SEMI E187 合規的完整防護建議。</p>
+        <a href="/blog/ot-ics-security-guide/" class="blog-read-more">閱讀全文 →</a>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-date">2025-09-12 · 採購指南 · 6 分鐘閱讀</div>
+        <div class="blog-title">企業 UTM 選購完全指南：六大評估關鍵</div>
+        <p class="blog-excerpt">面對市場上琳琅滿目的 UTM 產品，企業該如何做出正確選擇？本文從效能、功能、管理性、擴充性、合規支援與售後服務六個維度提供完整評估框架。</p>
+        <a href="/blog/utm-selection-guide/" class="blog-read-more">閱讀全文 →</a>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-date">2025-08-25 · 法規合規 · 7 分鐘閱讀</div>
+        <div class="blog-title">SEMI E187 半導體資安標準完整解說</div>
+        <p class="blog-excerpt">SEMI E187 是全球半導體產業首個專屬資安標準。本文詳細說明標準的核心要求、適用範圍，以及台灣晶圓廠如何在最短時間內達成合規。</p>
+        <a href="/blog/semi-e187-compliance/" class="blog-read-more">閱讀全文 →</a>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-date">2025-07-18 · 威脅分析 · 8 分鐘閱讀</div>
+        <div class="blog-title">企業勒索軟體防禦：從預防到應變的完整策略</div>
+        <p class="blog-excerpt">勒索軟體攻擊已成為企業最大資安威脅。本文分析現代勒索軟體的攻擊鏈，提供從端點防護、網路隔離到備份策略的多層防禦建議。</p>
+        <a href="/blog/ransomware-defense/" class="blog-read-more">閱讀全文 →</a>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-date">2025-06-30 · 架構設計 · 8 分鐘閱讀</div>
+        <div class="blog-title">零信任架構實作：從概念到落地的五個步驟</div>
+        <p class="blog-excerpt">零信任（Zero Trust）已從資安概念演變為企業必備的防護架構。本文提供五步驟實施路徑，協助企業在不影響業務的前提下逐步建立零信任防護。</p>
+        <a href="/blog/zero-trust-implementation/" class="blog-read-more">閱讀全文 →</a>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-date">2025-05-22 · IoT 安全 · 7 分鐘閱讀</div>
+        <div class="blog-title">物聯網資安挑戰：2025 年 IoT 威脅全景分析</div>
+        <p class="blog-excerpt">隨著工廠、醫院、辦公室大量部署 IoT 設備，攻擊面急速擴大。本文分析 IoT 裝置的天然弱點，並提供網路分段、裝置認證等防護建議。</p>
+        <a href="/blog/iot-security-challenges/" class="blog-read-more">閱讀全文 →</a>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-date">2025-04-10 · 供應鏈 · 6 分鐘閱讀</div>
+        <div class="blog-title">供應鏈資安攻擊：企業如何識別與防範第三方風險</div>
+        <p class="blog-excerpt">SolarWinds 等供應鏈攻擊事件證明，企業的資安邊界已延伸至整個供應鏈。本文分析供應鏈攻擊手法，並提供第三方風險管理的實務建議。</p>
+        <a href="/blog/supply-chain-security/" class="blog-read-more">閱讀全文 →</a>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-date">2025-03-05 · 技術解析 · 6 分鐘閱讀</div>
+        <div class="blog-title">URL 過濾技術深度解析：為什麼 5 億筆資料庫至關重要</div>
+        <p class="blog-excerpt">URL 過濾是企業內容安全的第一道防線，但過濾品質天差地別。本文解析 URL 資料庫的建構方式、分類邏輯，以及如何評估 URL 過濾解決方案的有效性。</p>
+        <a href="/blog/url-filtering-technology/" class="blog-read-more">閱讀全文 →</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="cta-band reveal" style="margin:0;">
+  <div><h2>想深入了解 Hexionn 解決方案？</h2><p>聯絡我們的資安顧問，取得針對您企業環境的客製化建議。</p></div>
+  <div style="display:flex;gap:1rem;flex-wrap:wrap;flex-shrink:0;">
+    <a href="/contact/" class="btn btn-orange" style="padding:.875rem 1.75rem;font-size:.9375rem;">立即諮詢<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8.5 3.5L13 8l-4.5 4.5-.707-.707L11.086 8.5H3v-1h8.086L7.793 4.207z"/></svg></a>
+    <a href="/research/" class="btn btn-ghost" style="padding:.875rem 1.75rem;font-size:.9375rem;">威脅情報</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div><img src="/brand_assets/logo.png" alt="Hexionn" style="height:38px;width:auto;filter:brightness(0) invert(1)" /><p class="footer-brand-desc">Hexionn 以 AI 驅動的主動式安全平台，守護全球 2,400+ 家企業抵禦當代與未來威脅。</p></div>
+    <div><div class="f-col-title">UTM 產品</div><a href="/products/pico-utm-100/" class="f-link">Pico-UTM 100</a><a href="/products/dual-ark-utm-16/" class="f-link">Dual Ark-UTM 16</a><a href="/products/tera-utm-12/" class="f-link">Tera-UTM 12</a><a href="/products/lionfilter-200/" class="f-link">Lionfilter 200</a></div>
+    <div><div class="f-col-title">解決方案</div><a href="/solutions/finance/" class="f-link">金融服務</a><a href="/solutions/manufacturing/" class="f-link">製造業</a><a href="/solutions/healthcare/" class="f-link">醫療健康</a><a href="/solutions/government/" class="f-link">政府機構</a></div>
+    <div><div class="f-col-title">資源</div><a href="/research/" class="f-link">威脅情報</a><a href="/blog/" class="f-link">資安知識庫</a><a href="/services/" class="f-link">專業服務</a></div>
+    <div><div class="f-col-title">聯絡</div><a href="/contact/" class="f-link">聯絡業務</a><a href="mailto:support@hexionnetworks.com" class="f-link">support@hexionnetworks.com</a></div>
+  </div>
+  <div class="footer-bottom"><div class="footer-copy">© 2026 Hexionn Corporation. 保留所有權利。</div><div class="footer-legal"><a href="#">隱私政策</a><a href="#">服務條款</a><a href="#">Cookie 設定</a><a href="#">無障礙聲明</a></div></div>
+</footer>
+<script>const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.08});document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));</script>
+</body>
+</html>
